@@ -1,0 +1,104 @@
+import React, { useState } from "react";
+import { Link } from "react-router-dom";
+
+const Login = () => {
+  const [errorMessage, setErrorMessage] = useState("");
+  const [loginData, setLoginData] = useState({
+    username: "",
+    password: "",
+  });
+
+  let handleInputChange = (e) => {
+    const { name, value } = e.target;
+    setLoginData((prevData) => ({ ...prevData, [name]: value }));
+    setErrorMessage("");
+  };
+
+  let validation = () => {
+    if (!loginData.username || !loginData.password) {
+      setErrorMessage("All credentials must be filled ! ");
+      return false;
+    } else if (loginData.username.length < 4) {
+      setErrorMessage("Username length must be of 4 characters. ");
+      return false;
+    } else if (loginData.password.length < 8) {
+      setErrorMessage("Password length must be at least 8 characters.");
+      return false;
+    } else {
+      return true;
+    }
+  };
+
+  let handleSubmit = async (e) => {
+    e.preventDefault();
+    let valid = validation();
+  };
+
+  console.log(loginData.username, loginData.password);
+
+  return (
+    <div className="flex items-center justify-center min-h-screen bg-gray-100 p-4">
+      <div className="bg-white shadow-lg rounded-lg overflow-hidden w-full max-w-4xl flex">
+        <div className="w-1/2 bg-blue-500 text-white flex flex-col justify-center items-center p-8">
+          <h1 className="text-4xl font-bold text-center mb-4">
+            Complaint Management System
+          </h1>
+          <p className="text-lg text-center">
+            Register your complaints to the local authority.
+          </p>
+          <p className="text-lg text-center">BE SAFE AND BE HAPPY !!!</p>
+        </div>
+        <div className="w-1/2 p-8">
+          <h2 className="text-2xl font-semibold text-center mb-6 text-gray-700">
+            Login
+          </h2>
+          <p className="text-center font-bold text-red-600 ">{errorMessage}</p>
+          <form className="space-y-4" onSubmit={handleSubmit}>
+            <div>
+              <label className="block text-gray-700 font-medium mb-1">
+                Username
+              </label>
+              <input
+                type="text"
+                placeholder="Enter your username"
+                name="username"
+                value={loginData.username}
+                onChange={handleInputChange}
+                className="w-full px-4 py-2 border rounded-lg focus:outline-none focus:ring-2 focus:ring-blue-500"
+              />
+            </div>
+            <div>
+              <label className="block text-gray-700 font-medium mb-1">
+                Password
+              </label>
+              <input
+                type="password"
+                placeholder="Enter your password"
+                name="password"
+                value={loginData.password}
+                onChange={handleInputChange}
+                className="w-full px-4 py-2 border rounded-lg focus:outline-none focus:ring-2 focus:ring-blue-500"
+              />
+            </div>
+            <button
+              type="submit"
+              className="w-full bg-blue-500 hover:bg-blue-600 text-white font-semibold py-2 rounded-lg transition duration-200 cursor-pointer"
+            >
+              Login
+            </button>
+          </form>
+          <div className="mt-4 text-center">
+            <p className="text-gray-700">
+              Don't have an account?{" "}
+              <Link to="/signup" className="text-blue-500 hover:underline">
+                Register
+              </Link>
+            </p>
+          </div>
+        </div>
+      </div>
+    </div>
+  );
+};
+
+export default Login;

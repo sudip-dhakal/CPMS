@@ -1,0 +1,31 @@
+{
+  "storedData": [
+    {
+      "fullName": "John Doe",
+      "address": "123 Main St, Anytown, USA",
+      "username": "john_doe",
+      "password": "securePassword123",
+      "reply": [
+        {
+          "replyText": "We have received your complaint and are working on it.",
+          "complainText": "The street lights are broken and need to be fixed.",
+          "complainDate": "2002-04-07",
+          "replyDate": "2002-05-24"
+        },
+        {
+          "replyText": "Your issue has been resolved, and the street lights are now operational.",
+          "complainText": "The street lights were repaired today.",
+          "complainDate": "2002-07-17",
+          "replyDate": "2002-08-08"
+        }
+      ],
+      "id": "50b6"
+    }
+  ],
+  "adminReleases": [
+    {
+      "releaseNote": "This is the first release",
+      "releaseDate": "2002-09-10"
+    }
+  ]
+}
