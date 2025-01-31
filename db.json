@@ -24,8 +24,39 @@
   ],
   "adminReleases": [
     {
-      "releaseNote": "This is the first release",
-      "releaseDate": "2002-09-10"
+      "id": "1a11",
+      "releaseNoteTitle": "Security update and minor bug fixes",
+      "releaseNoteDescription": "This update includes essential security enhancements to protect user data and ensure a safer experience. Several vulnerabilities have been patched to improve system stability and prevent potential exploits. Additionally, minor bugs affecting performance and usability have been addressed, ensuring smoother operation. We recommend all users update to this version for the best experience and improved security.",
+      "releaseDate": "2003-05-21",
+      "feedback": ""
+    },
+    {
+      "id": "3c33",
+      "releaseNoteTitle": "Feature Update: Dark Mode and Customization",
+      "releaseNoteDescription": "Users can now enable dark mode for a more comfortable viewing experience. Additionally, new customization options allow better personalization of the interface. This update also includes security patches to protect against emerging threats.",
+      "releaseDate": "2010-08-30",
+      "feedback": "Hi there"
+    },
+    {
+      "id": "4d44",
+      "releaseNoteTitle": "Critical Bug Fixes and Stability Improvements",
+      "releaseNoteDescription": "Several critical bugs affecting system stability have been addressed in this update. Improved error handling and crash prevention mechanisms ensure a more reliable and seamless experience for all users.",
+      "releaseDate": "2015-03-18",
+      "feedback": ""
+    },
+    {
+      "id": "5e55",
+      "releaseNoteTitle": "Major Security Patch and Compatibility Updates",
+      "releaseNoteDescription": "This release includes an important security patch to prevent unauthorized access and data breaches. Additionally, compatibility with the latest hardware and software standards has been improved to ensure seamless operation.",
+      "releaseDate": "2020-07-10",
+      "feedback": ""
+    },
+    {
+      "id": "4a41",
+      "releaseNoteTitle": "Critical Security Patch and Stability Fixes",
+      "releaseNoteDescription": "A critical security vulnerability has been patched in this release, addressing potential risks related to unauthorized access. Stability improvements have been made to prevent unexpected crashes and enhance overall system reliability. We strongly recommend updating to this version to maintain a secure and efficient environment.",
+      "releaseDate": "2018-02-10",
+      "feedback": ""
     }
   ]
 }

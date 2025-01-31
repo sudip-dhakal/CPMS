@@ -10,7 +10,7 @@ const Home = () => {
       <h1 className="font-bold text-xl w-[90%] mx-auto mt-6">
         The Notes from the Authority.
       </h1>
-      <Notes />
+      <Notes  />
     </div>
   );
 };
