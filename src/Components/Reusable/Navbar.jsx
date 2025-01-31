@@ -1,7 +1,9 @@
 import React, { useState } from "react";
 import Register_Complaint from "../../User/Register_Complaint";
+import { useNavigate } from "react-router-dom";
 
 const Navbar = () => {
+  let navigation = useNavigate();
   const [showModal, setShowModal] = useState(false);
   return (
     <>
@@ -14,7 +16,10 @@ const Navbar = () => {
           >
             Register Complaint
           </button>
-          <button className="cursor-pointer bg-[#fb8500] text-black py-2 px-4 rounded-md">
+          <button
+            className="cursor-pointer bg-[#fb8500] text-black py-2 px-4 rounded-md"
+            onClick={() => navigation("/complaints")}
+          >
             Your Complaints
           </button>
           <button className="cursor-pointer bg-[#fb8500] text-black py-2 px-4 rounded-md">

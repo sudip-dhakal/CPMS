@@ -6,6 +6,7 @@ import Home from "./User/Home";
 import user from "./context/userContext";
 import admin from "./context/adminContext";
 import axios from "axios";
+import Your_complaints from "./User/Your_complaints";
 
 const App = () => {
   const { complaints, setComplaints } = useContext(user);
@@ -48,6 +49,7 @@ const App = () => {
         <Routes>
           <Route path="/" element={<Home />} />
           <Route path="/signup" element={<Signup />} />
+          <Route path="/complaints" element={<Your_complaints />} />
         </Routes>
       </BrowserRouter>
     </>
