@@ -1,4 +1,4 @@
-import React, { useContext, useEffect } from "react";
+import React, { useContext, useEffect, useState } from "react";
 import Login from "./Components/Authentication/Login";
 import { BrowserRouter, Route, Routes } from "react-router-dom";
 import Signup from "./Components/Authentication/Signup";
@@ -8,10 +8,14 @@ import admin from "./context/adminContext";
 import axios from "axios";
 import Your_complaints from "./User/Your_complaints";
 import Edit_profile from "./User/Edit_profile";
+import Admin_home from "./Admin/Admin_home";
+import Complaints from "./Admin/Complaints";
+import Settings from "./Admin/Settings";
 
 const App = () => {
   const { complaints, setComplaints } = useContext(user);
   const { adminData, setAdminData } = useContext(admin);
+  const loggedIn=localStorage.getItem('loggedIn')
 
   let fetchAdminData = async () => {
     await axios
@@ -48,11 +52,13 @@ const App = () => {
     <>
       <BrowserRouter>
         <Routes>
-          <Route path="/" element={<Login />} />
-          <Route path='/home' element={<Home />}/>
+          <Route path="/" element={loggedIn ? <Home /> : <Login />} />
+          <Route path="/home" element={<Home />} />
           <Route path="/signup" element={<Signup />} />
           <Route path="/complaints" element={<Your_complaints />} />
           <Route path="/edit" element={<Edit_profile />} />
+          <Route path="/admin/complaints" element={<Complaints />} />
+          <Route path="/admin/setting" element={<Settings />} />
         </Routes>
       </BrowserRouter>
     </>

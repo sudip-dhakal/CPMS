@@ -28,7 +28,15 @@ const Navbar = () => {
           >
             Edit Profile
           </button>
-          <button className="cursor-pointer bg-[#fb8500] text-black py-2 px-4 rounded-md">Logout</button>
+          <button
+            className="cursor-pointer bg-[#fb8500] text-black py-2 px-4 rounded-md"
+            onClick={() => {
+              localStorage.removeItem("loggedIn");
+              navigation("/");
+            }}
+          >
+            Logout
+          </button>
         </div>
       </div>
       {showModal && <Register_Complaint setShowModal={setShowModal} />}

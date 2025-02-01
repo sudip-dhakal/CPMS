@@ -6,7 +6,6 @@ const Login = () => {
   let navigation = useNavigate();
   const { complaints } = useContext(user);
   const [errorMessage, setErrorMessage] = useState("");
-  const [propagatID, setPropagateID] = useState(null);
   const [loginData, setLoginData] = useState({
     username: "",
     password: "",
@@ -47,6 +46,7 @@ const Login = () => {
     });
     if (user) {
       console.log("User Exists");
+      localStorage.setItem("loggedIn", true);
       navigation("/home");
     } else {
       setErrorMessage("Invalid username or password");
