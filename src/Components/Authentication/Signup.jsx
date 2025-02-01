@@ -9,6 +9,7 @@ const Signup = () => {
     username: "",
     address: "",
     password: "",
+    role: null,
   });
 
   let handleInputChange = (e) => {
@@ -22,7 +23,8 @@ const Signup = () => {
       !signupData.fullName ||
       !signupData.password ||
       !signupData.username ||
-      !signupData.address
+      !signupData.address ||
+      !signupData.role
     ) {
       setError("Please fill all the credentials");
       return false;
@@ -35,6 +37,8 @@ const Signup = () => {
     } else if (signupData.password.length < 8) {
       setError("Your password should contain at least 8 characters.");
       return false;
+    } else if (!signupData.role) {
+      setError("Select your role");
     } else {
       return true;
     }
@@ -50,6 +54,7 @@ const Signup = () => {
           username: signupData.username,
           password: signupData.password,
           address: signupData.address,
+          role: signupData.role,
         });
 
         console.log("Data sent successfully");
@@ -122,6 +127,34 @@ const Signup = () => {
               onChange={handleInputChange}
               className="w-full mt-1 p-2 border border-gray-300 rounded-md focus:ring-blue-500 focus:border-blue-500"
             />
+          </div>
+
+          <div>
+            <h3 className="text-sm font-medium text-gray-700">Select your role</h3>
+            <div className="flex items-center space-x-4 mt-2">
+              <label className="flex items-center space-x-2">
+                <input
+                  type="radio"
+                  name="role"
+                  value="user"
+                  checked={signupData.role === "user"}
+                  onChange={handleInputChange}
+                  className="form-radio"
+                />
+                <span>User</span>
+              </label>
+              <label className="flex items-center space-x-2">
+                <input
+                  type="radio"
+                  name="role"
+                  value="admin"
+                  checked={signupData.role === "admin"}
+                  onChange={handleInputChange}
+                  className="form-radio"
+                />
+                <span>Admin</span>
+              </label>
+            </div>
           </div>
 
           <div>

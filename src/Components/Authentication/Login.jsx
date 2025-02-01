@@ -1,11 +1,16 @@
-import React, { useState } from "react";
-import { Link } from "react-router-dom";
+import React, { useContext, useState } from "react";
+import { Link, useNavigate } from "react-router-dom";
+import user from "../../context/userContext";
 
 const Login = () => {
+  let navigation = useNavigate();
+  const { complaints } = useContext(user);
   const [errorMessage, setErrorMessage] = useState("");
+  const [propagatID, setPropagateID] = useState(null);
   const [loginData, setLoginData] = useState({
     username: "",
     password: "",
+    role: null,
   });
 
   let handleInputChange = (e) => {
@@ -24,17 +29,39 @@ const Login = () => {
     } else if (loginData.password.length < 8) {
       setErrorMessage("Password length must be at least 8 characters.");
       return false;
+    } else if (!loginData.role) {
+      setErrorMessage("Select role");
+      return false;
     } else {
       return true;
+    }
+  };
+
+  let handleLogin = () => {
+    let user = complaints.find((u) => {
+      return (
+        u.username === loginData.username &&
+        u.password === loginData.password &&
+        u.role === loginData.role
+      );
+    });
+    if (user) {
+      console.log("User Exists");
+      navigation("/home");
+    } else {
+      setErrorMessage("Invalid username or password");
     }
   };
 
   let handleSubmit = async (e) => {
     e.preventDefault();
     let valid = validation();
+    if (valid) {
+      handleLogin();
+    }
   };
 
-  console.log(loginData.username, loginData.password);
+  // console.log(loginData.username, loginData.password, loginData.role);
 
   return (
     <div className="flex items-center justify-center min-h-screen bg-gray-100 p-4">
@@ -79,6 +106,35 @@ const Login = () => {
                 onChange={handleInputChange}
                 className="w-full px-4 py-2 border rounded-lg focus:outline-none focus:ring-2 focus:ring-blue-500"
               />
+            </div>
+            <div>
+              <label className="block text-gray-700 font-medium mb-1">
+                Role
+              </label>
+              <div className="flex space-x-4">
+                <label className="inline-flex items-center">
+                  <input
+                    type="radio"
+                    name="role"
+                    value="user"
+                    checked={loginData.role === "user"}
+                    onChange={handleInputChange}
+                    className="form-radio text-blue-500"
+                  />
+                  <span className="ml-2">User</span>
+                </label>
+                <label className="inline-flex items-center">
+                  <input
+                    type="radio"
+                    name="role"
+                    value="admin"
+                    checked={loginData.role === "admin"}
+                    onChange={handleInputChange}
+                    className="form-radio text-blue-500"
+                  />
+                  <span className="ml-2">Admin</span>
+                </label>
+              </div>
             </div>
             <button
               type="submit"

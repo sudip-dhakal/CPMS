@@ -22,9 +22,13 @@ const Navbar = () => {
           >
             Your Complaints
           </button>
-          <button className="cursor-pointer bg-[#fb8500] text-black py-2 px-4 rounded-md">
+          <button
+            className="cursor-pointer bg-[#fb8500] text-black py-2 px-4 rounded-md"
+            onClick={() => navigation("/edit")}
+          >
             Edit Profile
           </button>
+          <button className="cursor-pointer bg-[#fb8500] text-black py-2 px-4 rounded-md">Logout</button>
         </div>
       </div>
       {showModal && <Register_Complaint setShowModal={setShowModal} />}
