@@ -1,9 +1,12 @@
-import React, { useState } from "react";
+import React, { useContext, useState } from "react";
 import Navbar from "../Components/Reusable/Navbar";
 import { useNavigate } from "react-router-dom";
+import user from "../context/userContext";
+import axios from "axios";
 
 const Edit_profile = () => {
   let navigation = useNavigate();
+  const { propagateID } = useContext(user);
   const [message, setMessage] = useState("");
   const [credentails, setCredentials] = useState({
     fullName: "",
@@ -39,7 +42,7 @@ const Edit_profile = () => {
         "Username and Password's length must be at least 4 characters."
       );
       return false;
-    } else if (password !== confirmPassword) {
+    } else if (credentails.password !== credentails.confirmPassword) {
       setMessage("Password and confirm password must be same");
       return false;
     } else {
@@ -47,13 +50,18 @@ const Edit_profile = () => {
     }
   };
 
-
-  let handleChange=async()=>{
-    let valid=validation();
-    if(valid){
-      await axios.patch('')
+  let handleChange = async (e) => {
+    e.preventDefault();
+    let valid = validation();
+    if (valid) {
+      await axios
+        .patch(`http://localhost:3031/storedData/${propagateID}`, credentails)
+        .then((res) => {
+          console.log("data sent successfully");
+        })
+        .catch((e) => console.log("error", e));
     }
-  }
+  };
 
   console.log(credentails);
 
@@ -118,6 +126,7 @@ const Edit_profile = () => {
                 type="password"
                 placeholder="Enter Confirm Password"
                 value={credentails.confirmPassword}
+                name="confirmPassword"
                 onChange={handleEventChange}
               />
             </div>
