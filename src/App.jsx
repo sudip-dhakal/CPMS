@@ -15,7 +15,7 @@ import Settings from "./Admin/Settings";
 const App = () => {
   const { complaints, setComplaints } = useContext(user);
   const { adminData, setAdminData } = useContext(admin);
-  const loggedIn=localStorage.getItem('loggedIn')
+  const loggedIn = localStorage.getItem("loggedIn");
 
   let fetchAdminData = async () => {
     await axios
@@ -59,6 +59,7 @@ const App = () => {
           <Route path="/edit" element={<Edit_profile />} />
           <Route path="/admin/complaints" element={<Complaints />} />
           <Route path="/admin/setting" element={<Settings />} />
+          <Route path="/admin/home" element={<Admin_home />} />
         </Routes>
       </BrowserRouter>
     </>

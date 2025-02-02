@@ -4,9 +4,9 @@ import user from "../../context/userContext";
 
 const Login = () => {
   let navigation = useNavigate();
-  const { complaints, setPropagateID, propagateID, setIndex } =
-    useContext(user);
+  const { complaints, setPropagateID, setIndex } = useContext(user);
   const [errorMessage, setErrorMessage] = useState("");
+  const [role, setRole] = useState(null);
   const [loginData, setLoginData] = useState({
     username: "",
     password: "",
@@ -52,6 +52,7 @@ const Login = () => {
       );
     });
     if (user) {
+      setRole(role);
       setPropagateID(user.id);
       setUpForLogin(user.id);
     } else {

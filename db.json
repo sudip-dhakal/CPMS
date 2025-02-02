@@ -1,11 +1,11 @@
 {
   "storedData": [
     {
-      "fullName": "Sudip Dhakal",
+      "fullName": "fullname",
       "role": "user",
-      "address": "Nuwakot Nepal",
-      "username": "Sudip_Dhakal",
-      "password": "01234567",
+      "address": "address",
+      "username": "shyam krishna",
+      "password": "password",
       "reply": [
         {
           "replyText": "We have received your complaint and are working on it.",
@@ -37,7 +37,7 @@
         }
       ],
       "id": "50b6",
-      "confirmPassword": "01234567",
+      "confirmPassword": "password",
       "": "e"
     },
     {
@@ -70,6 +70,20 @@
         }
       ],
       "id": "78c9"
+    },
+    {
+      "fullName": "Sophia Martinez",
+      "role": "admin",
+      "address": "321 Birch Ln, Rivertown, USA",
+      "username": "sophia_m",
+      "password": "S0ph!a2023"
+    },
+    {
+      "fullName": "Liam Brown",
+      "role": "admin",
+      "address": "654 Cedar Blvd, Lakeside, USA",
+      "username": "liam_b",
+      "password": "L!am2023"
     },
     {
       "fullName": "Michael Johnson",

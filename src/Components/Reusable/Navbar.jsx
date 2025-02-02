@@ -9,7 +9,7 @@ const Navbar = () => {
   const [showModal, setShowModal] = useState(false);
   return (
     <>
-      <div className="w-full h-[5rem] text-xl bg-orange-800 text-white p-3 flex justify-between items-center">
+      <div className="w-full h-[5rem] text-xl bg-orange-800 text-white p-3 flex justify-between items-center fixed">
         <h1 className="ml-4">{complaints[index].fullName}</h1>
         <div className="mr-4 flex space-x-10">
           <button
