@@ -2,7 +2,7 @@ import axios from "axios";
 import React, { useState } from "react";
 import { ImCross } from "react-icons/im";
 
-const ReleaseNoteDescription = ({ setShowDesc, adminData, keyId, descKey }) => {
+const ReleaseNoteDescription = ({ setShowDesc, keyId, adminData, descKey }) => {
   const [showFeedback, setShowFeedback] = useState(false);
   const [feedback, setFeedback] = useState("");
   const [message, setMessage] = useState("");
@@ -41,7 +41,7 @@ const ReleaseNoteDescription = ({ setShowDesc, adminData, keyId, descKey }) => {
           className="absolute top-4 right-4 p-2 rounded-full hover:bg-gray-200 transition"
           onClick={() => setShowDesc(false)}
         >
-          <ImCross size={18} cursor="pointer"/>
+          <ImCross size={18} cursor="pointer" />
         </button>
 
         <h1 className="font-bold text-black text-2xl mt-6">

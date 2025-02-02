@@ -6,7 +6,7 @@ const Your_complaints = () => {
   const { complaints } = useContext(user);
   const [complainData, setComplainData] = useState(complaints);
 
-  console.log(complainData[0].reply[0].complainText);
+  // console.log(complainData[0].reply[0].complainText);
 
   return (
     <>

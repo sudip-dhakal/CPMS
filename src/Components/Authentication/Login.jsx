@@ -4,7 +4,8 @@ import user from "../../context/userContext";
 
 const Login = () => {
   let navigation = useNavigate();
-  const { complaints } = useContext(user);
+  const { complaints, setPropagateID, propagateID, setIndex } =
+    useContext(user);
   const [errorMessage, setErrorMessage] = useState("");
   const [loginData, setLoginData] = useState({
     username: "",
@@ -16,6 +17,12 @@ const Login = () => {
     const { name, value } = e.target;
     setLoginData((prevData) => ({ ...prevData, [name]: value }));
     setErrorMessage("");
+  };
+
+  let setUpForLogin = (userId) => {
+    setIndex(complaints.findIndex((u) => u.id === userId));
+    localStorage.setItem("loggedIn", true);
+    navigation("/home");
   };
 
   let validation = () => {
@@ -45,9 +52,8 @@ const Login = () => {
       );
     });
     if (user) {
-      console.log("User Exists");
-      localStorage.setItem("loggedIn", true);
-      navigation("/home");
+      setPropagateID(user.id);
+      setUpForLogin(user.id);
     } else {
       setErrorMessage("Invalid username or password");
     }

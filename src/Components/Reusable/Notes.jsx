@@ -4,16 +4,13 @@ import ReleaseNoteDescription from "../../User/ReleaseNoteDescription";
 
 const Notes = () => {
   const { adminData } = useContext(admin);
-  console.log(adminData);
   const [showDesc, setShowDesc] = useState(false);
   const [descKey, setDescKey] = useState(null);
   const [keyId, setKeyId] = useState(null);
 
-  let idSetting = (index) => {
-    setKeyId(adminData[index].id);
+  const isSet = () => {
+    setKeyId(adminData[descKey].id);
   };
-
-  console.log(keyId);
 
   return (
     <>
@@ -22,12 +19,11 @@ const Notes = () => {
       ) : (
         adminData.map((item, index) => {
           return (
-            <div className="flex text-black   rounded-md">
+            <div key={index} className="flex text-black   rounded-md">
               <div
                 className="  px-4 py-2 rounded-md w-[80%] mt-6 ml-19 bg-[#354f52] text-white hover:bg-amber-700 cursor-pointer "
                 onClick={() => {
                   setDescKey(index);
-                  idSetting(index);
                   setShowDesc(true);
                 }}
               >
@@ -41,8 +37,8 @@ const Notes = () => {
               {showDesc && (
                 <ReleaseNoteDescription
                   descKey={descKey}
-                  adminData={adminData}
                   keyId={keyId}
+                  adminData={adminData}
                   setShowDesc={setShowDesc}
                 />
               )}
