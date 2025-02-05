@@ -2,17 +2,17 @@ import React, { useContext, useState } from "react";
 import Navbar from "../Components/Reusable/Navbar";
 import { useNavigate } from "react-router-dom";
 import user from "../context/userContext";
-import axios from "axios";
+import { doPatchUser } from "../API/UserApi";
 
 const Edit_profile = () => {
+  const { selected, setSelected } = useContext(user);
   let navigation = useNavigate();
-  const { propagateID } = useContext(user);
   const [message, setMessage] = useState("");
   const [credentails, setCredentials] = useState({
-    fullName: "",
-    address: "",
+    fullName: selected.fullName,
+    address: selected.address,
     password: "",
-    username: "",
+    username: selected.username,
     confirmPassword: "",
   });
 
@@ -29,37 +29,51 @@ const Edit_profile = () => {
       !credentails.fullName ||
       !credentails.address ||
       !credentails.password ||
-      !credentails.username ||
-      !credentails.confirmPassword
+      !credentails.confirmPassword ||
+      !credentails.address
     ) {
-      setMessage("All the credentials must be filled.");
-      return false;
-    } else if (
-      credentails.username.length < 4 &&
-      credentails.password.length < 4
-    ) {
-      setMessage(
-        "Username and Password's length must be at least 4 characters."
-      );
+      setMessage("All the field must be filled");
       return false;
     } else if (credentails.password !== credentails.confirmPassword) {
-      setMessage("Password and confirm password must be same");
+      setMessage("The password and confirm password didn't match");
       return false;
     } else {
+      setMessage("");
       return true;
     }
   };
 
-  let handleChange = async (e) => {
+  let updateData = {
+    fullName: credentails.fullName,
+    address: credentails.address,
+    username: credentails.username,
+    password: credentails.password,
+  };
+
+  let updateProfile = async () => {
+    let response = await doPatchUser(selected.id, updateData);
+
+    if (response.status === 200) {
+      console.log("Data sent successfully");
+      setSelected((prev) => {
+        return {
+          ...prev,
+          updateData,
+        };
+      });
+      navigation("/home");
+    } else {
+      console.log("Data cannot be sent");
+    }
+  };
+
+  console.log(selected);
+
+  let handleChange = (e) => {
     e.preventDefault();
     let valid = validation();
     if (valid) {
-      await axios
-        .patch(`http://localhost:3031/storedData/${propagateID}`, credentails)
-        .then((res) => {
-          console.log("data sent successfully");
-        })
-        .catch((e) => console.log("error", e));
+      updateProfile();
     }
   };
 
@@ -68,78 +82,108 @@ const Edit_profile = () => {
   return (
     <>
       <Navbar />
-      <div className="bg-[#F8F9FA] min-h-screen flex justify-center items-center p-4">
-        <div className="bg-white rounded-lg shadow-lg p-8 w-full max-w-3xl">
-          <h1 className="text-3xl font-semibold text-center mb-6">
+      <div className="bg-gray-100 min-h-screen flex justify-center items-center p-6 pt-24">
+        <div className="bg-white rounded-xl shadow-md p-10 w-full max-w-2xl">
+          <h1 className="text-4xl font-bold text-center text-gray-800 mb-8">
             Edit Your Profile
           </h1>
-          <p className="text-red-700">{message}</p>
-          <div className="space-y-6">
-            <div className="flex flex-col">
-              <label className="text-lg font-medium">Username</label>
-              <input
-                className="border border-gray-300 rounded-md p-3 focus:outline-none focus:ring-2 focus:ring-blue-500"
-                type="text"
-                name="username"
-                value={credentails.username}
-                onChange={handleEventChange}
-                placeholder="Enter Username"
-              />
+          {message && (
+            <p className="text-red-600 text-center mb-4">{message}</p>
+          )}
+          <div className="space-y-5">
+            <div className="flex space-x-4">
+              <div className="flex flex-col w-1/2 space-y-2">
+                <label className="text-lg font-semibold text-gray-700">
+                  Username
+                </label>
+                <input
+                  className="border border-gray-300 rounded-lg p-3 focus:outline-none focus:ring-2 focus:ring-blue-500 shadow-sm"
+                  type="text"
+                  name="username"
+                  value={credentails.username}
+                  onChange={(e) => {
+                    handleEventChange(e);
+                    setMessage("");
+                  }}
+                  placeholder="Enter Username"
+                />
+              </div>
+              <div className="flex flex-col w-1/2 space-y-2">
+                <label className="text-lg font-semibold text-gray-700">
+                  Full Name
+                </label>
+                <input
+                  className="border border-gray-300 rounded-lg p-3 focus:outline-none focus:ring-2 focus:ring-blue-500 shadow-sm"
+                  type="text"
+                  name="fullName"
+                  value={credentails.fullName}
+                  onChange={(e) => {
+                    handleEventChange(e);
+                    setMessage("");
+                  }}
+                  placeholder="Enter Full Name"
+                />
+              </div>
             </div>
-            <div className="flex flex-col">
-              <label className="text-lg font-medium">Full Name</label>
-              <input
-                className="border border-gray-300 rounded-md p-3 focus:outline-none focus:ring-2 focus:ring-blue-500"
-                type="text"
-                name="fullName"
-                value={credentails.fullName}
-                onChange={handleEventChange}
-                placeholder="Enter Full Name"
-              />
+            <div className="flex space-x-4">
+              <div className="flex flex-col w-1/2 space-y-2">
+                <label className="text-lg font-semibold text-gray-700">
+                  Address
+                </label>
+                <input
+                  className="border border-gray-300 rounded-lg p-3 focus:outline-none focus:ring-2 focus:ring-blue-500 shadow-sm"
+                  type="text"
+                  name="address"
+                  value={credentails.address}
+                  onChange={(e) => {
+                    handleEventChange(e);
+                    setMessage("");
+                  }}
+                  placeholder="Enter Address"
+                />
+              </div>
+              <div className="flex flex-col w-1/2 space-y-2">
+                <label className="text-lg font-semibold text-gray-700">
+                  Password
+                </label>
+                <input
+                  className="border border-gray-300 rounded-lg p-3 focus:outline-none focus:ring-2 focus:ring-blue-500 shadow-sm"
+                  type="password"
+                  name="password"
+                  value={credentails.password}
+                  onChange={(e) => {
+                    handleEventChange(e);
+                    setMessage("");
+                  }}
+                  placeholder="Enter Password"
+                />
+              </div>
             </div>
-            <div className="flex flex-col">
-              <label className="text-lg font-medium">Address</label>
+            <div className="flex flex-col space-y-2">
+              <label className="text-lg font-semibold text-gray-700">
+                Confirm Password
+              </label>
               <input
-                className="border border-gray-300 rounded-md p-3 focus:outline-none focus:ring-2 focus:ring-blue-500"
-                type="text"
-                name="address"
-                value={credentails.address}
-                onChange={handleEventChange}
-                placeholder="Enter Address"
-              />
-            </div>
-            <div className="flex flex-col">
-              <label className="text-lg font-medium">Password</label>
-              <input
-                className="border border-gray-300 rounded-md p-3 focus:outline-none focus:ring-2 focus:ring-blue-500"
+                className="border border-gray-300 rounded-lg p-3 focus:outline-none focus:ring-2 focus:ring-blue-500 shadow-sm"
                 type="password"
-                name="password"
-                value={credentails.password}
-                onChange={handleEventChange}
-                placeholder="Enter Password"
-              />
-            </div>
-            <div className="flex flex-col">
-              <label className="text-lg font-medium">Confirm Password</label>
-              <input
-                className="border border-gray-300 rounded-md p-3 focus:outline-none focus:ring-2 focus:ring-blue-500"
-                type="password"
-                placeholder="Enter Confirm Password"
-                value={credentails.confirmPassword}
                 name="confirmPassword"
-                onChange={handleEventChange}
+                value={credentails.confirmPassword}
+                onChange={(e) => {
+                  handleEventChange(e);
+                  setMessage("");
+                }}
+                placeholder="Enter Confirm Password"
               />
             </div>
-            <div className="flex space-x-10 justify-between">
+            <div className="flex justify-between mt-6">
               <button
-                className="px-6 py-3 rounded-md bg-blue-600 text-white font-semibold hover:bg-blue-700 transition duration-200 ease-in-out cursor-pointer"
+                className="px-6 py-3 rounded-lg bg-gray-500 text-white font-semibold hover:bg-gray-600 transition duration-200 ease-in-out"
                 onClick={() => navigation("/")}
               >
                 Cancel
               </button>
-
               <button
-                className="px-6 py-3 rounded-md bg-blue-600 text-white font-semibold  hover:bg-blue-700 transition duration-200 ease-in-out cursor-pointer"
+                className="px-6 py-3 rounded-lg bg-blue-600 text-white font-semibold hover:bg-blue-700 transition duration-200 ease-in-out"
                 onClick={handleChange}
               >
                 Change Credentials

@@ -1,63 +1,84 @@
 import React, { useContext, useState } from "react";
 import { ImCross } from "react-icons/im";
+import { doPatchUser } from "../API/UserApi";
 import user from "../context/userContext";
-import axios from "axios";
 
-const Register_Complaint = ({ setShowModal }) => {
-  const { propagateID, complaints, index } = useContext(user);
-  const [complainData, setComplainData] = useState({
-    complainText: "",
+const Register_Complaint = ({ setShowRegister }) => {
+  const { selected, setSelected } = useContext(user);
+  const [errorMessage, setErrorMessage] = useState("");
+  const [data, setData] = useState({
     complainDate: "",
+    complainText: "",
   });
 
-  let changeEventHandler = (e) => {
+  let handleInputChange = (e) => {
     const { name, value } = e.target;
-    setComplainData((prevData) => ({
-      ...prevData,
-      [name]: value,
-    }));
+    setData((prev) => {
+      return {
+        ...prev,
+        [name]: value,
+      };
+    });
   };
 
-  let handleClear = () => {
-    complainData.complainText = "";
-    complainData.complainDate = "";
+  let validate = () => {
+    if (!data.complainDate || !data.complainText) {
+      setErrorMessage("Both fields should be filled");
+      return false;
+    } else {
+      return true;
+    }
   };
 
-  let newData = {
-    replyText: "",
-    complainText: complainData.complainText,
-    complainDate: complainData.complainDate,
-    replyDate: "",
-    id: Math.floor(Math.random() * (23342 - 3272 + 1)) + 3272,
+  const updateData = [
+    ...(selected.reply || []),
+    {
+      replyText: "Not yet",
+      complainText: data.complainText,
+      complainDate: data.complainDate,
+      replyDate: "Not yet",
+      id: Math.floor(Math.random() * (2841287421 - 37821) + 1) + 37821,
+    },
+  ];
+
+  let handlePutData = async () => {
+    let response = await doPatchUser(selected.id, { reply: updateData });
+
+    if (response.status === 200) {
+      console.log("Data send Successful");
+      setSelected((prev) => {
+        return {
+          ...prev,
+          reply: updateData,
+        };
+      });
+
+      setShowRegister(false);
+    } else {
+      console.log("No data sent successful");
+    }
   };
 
   let handleRegister = (e) => {
     e.preventDefault();
-    axios
-      .put(`http://localhost:3031/storedData/${propagateID}`, {
-        ...complaints[index],
-        reply: [...complaints[index].reply, newData],
-      })
-      .then(() => {
-        console.log("Data sent successfully");
-      })
-      .catch((e) => {
-        console.log("error sending data");
-      });
-    handleClear();
+    let valid = validate();
+    if (valid) {
+      handlePutData();
+    }
   };
+
   return (
     <>
       <form>
-        <div className="mb-10 mt-6 w-[90%] md:w-[50%] mx-auto bg-amber-100 text-black rounded-lg p-6 flex flex-col space-y-4">
+        <div className="mb-2 pt-24 w-[90%] md:w-[50%] mx-auto bg-amber-100 text-black rounded-lg p-6 flex flex-col space-y-4">
           <div className="flex justify-between items-center">
             <h1 className="font-bold text-xl">Enter your Complaint</h1>
-            <ImCross
-              size={18}
-              color="black"
-              className="cursor-pointer hover:text-red-600"
-              onClick={() => setShowModal(false)}
-            />
+            <p
+              className="text-black hover:bg-red-600 hover:text-white p-2 hover:rounded-full transition-all duration-500 cursor-pointer"
+              onClick={() => setShowRegister(false)}
+            >
+              <ImCross size={18} />
+            </p>
           </div>
 
           <div>
@@ -66,9 +87,9 @@ const Register_Complaint = ({ setShowModal }) => {
             </label>
             <input
               type="date"
-              value={complainData.complainDate}
               name="complainDate"
-              onChange={changeEventHandler}
+              value={data.complainDate}
+              onChange={handleInputChange}
               className="w-full border border-gray-700 rounded-md px-3 py-2 mt-1 text-black focus:outline-none focus:ring-2 focus:ring-amber-500"
             />
           </div>
@@ -79,25 +100,27 @@ const Register_Complaint = ({ setShowModal }) => {
             </label>
             <textarea
               rows={3}
+              value={data.complainText}
+              onChange={handleInputChange}
               placeholder="Place your complaint here..."
-              value={complainData.complainText}
               name="complainText"
-              onChange={changeEventHandler}
               className="w-full border border-gray-700 rounded-md px-3 py-2 mt-1 text-black focus:outline-none focus:ring-2 focus:ring-amber-500"
             ></textarea>
           </div>
 
+          <p className="italic text-center text-red-600">{errorMessage}</p>
+
           <div className="flex justify-end space-x-3">
             <button
               type="button"
-              onClick={() => setShowModal(false)}
               className="px-4 py-2 rounded-md bg-gray-300 hover:bg-gray-400 text-gray-800"
+              onClick={() => setShowRegister(false)}
             >
               Cancel
             </button>
             <button
-              type="submit"
               onClick={handleRegister}
+              type="submit"
               className="bg-red-800 text-white text-xl px-4 py-2 rounded-md hover:bg-red-900 cursor-pointer"
             >
               Register

@@ -4,14 +4,16 @@ import user from "../../context/userContext";
 
 const Login = () => {
   let navigation = useNavigate();
-  const { complaints, setPropagateID, setIndex } = useContext(user);
+  const { complaints, selected, setSelected } = useContext(user);
   const [errorMessage, setErrorMessage] = useState("");
-  const [role, setRole] = useState(null);
+
   const [loginData, setLoginData] = useState({
     username: "",
     password: "",
     role: null,
   });
+
+  console.log(selected);
 
   let handleInputChange = (e) => {
     const { name, value } = e.target;
@@ -19,10 +21,12 @@ const Login = () => {
     setErrorMessage("");
   };
 
-  let setUpForLogin = (userId) => {
-    setIndex(complaints.findIndex((u) => u.id === userId));
-    localStorage.setItem("loggedIn", true);
-    navigation("/home");
+  let setUpForLogin = (role) => {
+    role == "user"
+      ? navigation("/home")
+      : role == "admin"
+      ? navigation("/admin/home")
+      : console.log("No role identified for this credential");
   };
 
   let validation = () => {
@@ -52,12 +56,12 @@ const Login = () => {
       );
     });
     if (user) {
-      setRole(role);
-      setPropagateID(user.id);
-      setUpForLogin(user.id);
+      setSelected(user);
     } else {
       setErrorMessage("Invalid username or password");
     }
+
+    setUpForLogin(user.role);
   };
 
   let handleSubmit = async (e) => {
@@ -145,6 +149,7 @@ const Login = () => {
             </div>
             <button
               type="submit"
+              onClick={handleSubmit}
               className="w-full bg-blue-500 hover:bg-blue-600 text-white font-semibold py-2 rounded-lg transition duration-200 cursor-pointer"
             >
               Login

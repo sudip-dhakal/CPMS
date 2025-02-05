@@ -4,49 +4,43 @@ import ReleaseNoteDescription from "../../User/ReleaseNoteDescription";
 
 const Notes = () => {
   const { adminData } = useContext(admin);
-  const [showDesc, setShowDesc] = useState(false);
-  const [descKey, setDescKey] = useState(null);
-  const [keyId, setKeyId] = useState(null);
-
-  const isSet = () => {
-    setKeyId(adminData[descKey].id);
-  };
+  const [description, setDescription] = useState("");
+  const [showDescription, setShowDescription] = useState(false);
 
   return (
-    <>
-      {!adminData ? (
-        <div className="ml-19">No data available yet. </div>
+    <div className="flex flex-col items-center w-full min-h-screen p-6">
+      {!adminData || adminData.length === 0 ? (
+        <div className="px-6 py-4 bg-gray-800 text-white text-center rounded-md shadow-md">
+          <p className="italic text-lg">No releases made by admin yet.</p>
+        </div>
       ) : (
-        adminData.map((item, index) => {
-          return (
-            <div key={index} className="flex text-black   rounded-md">
-              <div
-                className="  px-4 py-2 rounded-md w-[80%] mt-6 ml-19 bg-[#354f52] text-white hover:bg-amber-700 cursor-pointer "
-                onClick={() => {
-                  setDescKey(index);
-                  setShowDesc(true);
-                }}
-              >
-                <div className="">
-                  <p className="text-[1.5rem] text-start text-white">
-                    {item.releaseNoteTitle}
-                  </p>
-                  <p className="text-end">{item.releaseDate}</p>
-                </div>
+        <div className="w-full max-w-3xl">
+          {adminData.map((item, index) => (
+            <div
+              key={index}
+              onClick={() => {
+                setDescription(item);
+                setShowDescription(true);
+              }}
+              className="bg-[#2C3E50] min-h-full hover:bg-amber-900 transition-all duration-300 ease-in-out cursor-pointer text-white p-5 mb-4 rounded-lg shadow-lg"
+            >
+              <div className="flex justify-between items-center">
+                <p className="text-xl font-semibold">{item.releaseNoteTitle}</p>
+                <p className="text-sm opacity-80">{item.releaseDate}</p>
               </div>
-              {showDesc && (
-                <ReleaseNoteDescription
-                  descKey={descKey}
-                  keyId={keyId}
-                  adminData={adminData}
-                  setShowDesc={setShowDesc}
-                />
-              )}
             </div>
-          );
-        })
+          ))}
+        </div>
       )}
-    </>
+      
+      {showDescription && (
+        <ReleaseNoteDescription
+          description={description}
+          setShowDescription={setShowDescription}
+          adminData={adminData}
+        />
+      )}
+    </div>
   );
 };
 
