@@ -2,15 +2,30 @@ import React, { useContext, useState } from "react";
 import { FaEdit } from "react-icons/fa";
 import { ImCross } from "react-icons/im";
 import admin from "../context/adminContext";
-import axios from "axios";
+import { VscFeedback } from "react-icons/vsc";
+import { doPostAdmin } from "../API/AdminAPI";
 
 const ReleasedMessages = () => {
   const { adminData, setAdminData } = useContext(admin);
+  const [message, setMessage] = useState("");
   const [release, setRelease] = useState({
     releaseDate: "",
     releaseNoteTitle: "",
     releaseNoteDescription: "",
   });
+
+  let validation = () => {
+    if (
+      !release.releaseDate ||
+      !release.releaseNoteDescription ||
+      !release.releaseNoteTitle
+    ) {
+      setMessage("All the fields must be filled !");
+      return false;
+    } else {
+      return true;
+    }
+  };
 
   let callChangeHandler = (e) => {
     const { name, value } = e.target;
@@ -18,28 +33,32 @@ const ReleasedMessages = () => {
   };
   console.log(release);
 
-  let releaseHandler = async () => {
-    await axios
-      .post("http://localhost:3031/adminReleases", {
-        id: Math.floor(Math.random() * (877585789 - 2178098)) + 2178098,
-        releaseNoteTitle: release.releaseNoteTitle,
-        releaseNoteDescription: release.releaseNoteDescription,
-        releaseDate: release.releaseDate,
-      })
-      .then((res) => {
-        console.log("Data sent successfully");
-      })
-      .catch((e) => {
-        console.log("Error sending data");
+  let prepareForRelease = async () => {
+    let response = await doPostAdmin(release);
+    console.log(response);
+    if (response.status === 201) {
+      setAdminData((prev) => {
+        return [...prev, release];
       });
+      console.log("Data sent successfully");
+      setMessage("");
+      setRelease({
+        releaseDate: "",
+        releaseNoteTitle: "",
+        releaseNoteDescription: "",
+      });
+    } else {
+      console.log("Data sent failure");
+    }
   };
 
-  let deleteHandler = (index) => {
-    let idToDelete = adminData[index].id;
-    console.log(idToDelete)
+  let handleRelease = (e) => {
+    e.preventDefault();
+    let valid = validation();
+    if (valid) {
+      prepareForRelease();
+    }
   };
-  let editHandler = (index) => {};
-  
 
   return (
     <div className="ml-[18%] p-6 flex flex-col">
@@ -91,7 +110,8 @@ const ReleasedMessages = () => {
         </div>
 
         <button
-          onClick={releaseHandler}
+          type="submit"
+          onClick={handleRelease}
           className="rounded-md bg-blue-700 hover:bg-blue-500 cursor-pointer w-[20%] ml-auto px-4 py-2 mt-4 text-white transition-all duration-200"
         >
           Release
@@ -120,24 +140,25 @@ const ReleasedMessages = () => {
               </p>
             </div>
 
-            <div className="flex space-x-4 flex-col gap-10">
+            <div className="flex space-x-4 flex-col gap-5">
               <button
                 type="button"
-                onClick={(index) => {
-                  editHandler(index);
-                }}
                 className="cursor-pointer bg-blue-600 text-white flex items-center gap-2 px-4 py-2 rounded-md text-sm font-medium shadow-md hover:bg-blue-700 transition"
               >
                 <FaEdit /> Edit
               </button>
               <button
                 type="button"
-                onClick={(index) => {
-                  deleteHandler(index);
-                }}
                 className="cursor-pointer bg-red-600 text-white flex items-center gap-2 px-4 py-2 rounded-md text-sm font-medium hover:bg-red-700 transition"
               >
                 <ImCross /> Delete
+              </button>
+
+              <button
+                type="button"
+                className="cursor-pointer bg-purple-700 text-white flex items-center gap-2 px-4 py-2 rounded-md text-sm font-medium hover:bg-red-700 transition"
+              >
+                <VscFeedback /> Feedbacks
               </button>
             </div>
           </div>
