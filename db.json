@@ -170,44 +170,13 @@
   ],
   "adminReleases": [
     {
-      "id": "1a11",
-      "releaseNoteTitle": "Security update and minor bug fixes",
-      "releaseNoteDescription": "This update includes essential security enhancements to protect user data and ensure a safer experience. Several vulnerabilities have been patched to improve system stability and prevent potential exploits. Additionally, minor bugs affecting performance and usability have been addressed, ensuring smoother operation. We recommend all users update to this version for the best experience and improved security.",
-      "releaseDate": "2003-05-21",
+      "id": "5e56",
+      "releaseNoteTitle": "Critical Bug Fix ",
+      "releaseNoteDescription": "This release addresses several critical bugs affecting user experience and improves overall system performance.",
+      "releaseDate": "2020-08-15",
       "feedback": [
         {
-          "id": 70273697,
-          "userID": "1a11",
-          "feedbackText": "Nice"
-        }
-      ]
-    },
-    {
-      "id": "3c33",
-      "releaseNoteTitle": "Feature Update: Dark Mode and Customization",
-      "releaseNoteDescription": "Users can now enable dark mode for a more comfortable viewing experience. Additionally, new customization options allow better personalization of the interface. This update also includes security patches to protect against emerging threats.",
-      "releaseDate": "2010-08-30",
-      "feedback": [
-        {
-          "id": 16938523,
-          "userID": "3c33",
-          "feedbackText": "feedback number 2"
-        },
-        {
-          "id": 48627265,
-          "userID": "3c33",
-          "feedbackText": "Feedback 65"
-        }
-      ]
-    },
-    {
-      "id": "4d44",
-      "releaseNoteTitle": "Critical Bug Fixes and Stability Improvements",
-      "releaseNoteDescription": "Several critical bugs affecting system stability have been addressed in this update. Improved error handling and crash prevention mechanisms ensure a more reliable and seamless experience for all users.",
-      "releaseDate": "2015-03-18",
-      "feedback": [
-        {
-          "id": "ejaie",
+          "id": "bdehr",
           "userID": "",
           "UserName": "",
           "feedbackText": ""
@@ -215,13 +184,125 @@
       ]
     },
     {
-      "id": "5e55",
-      "releaseNoteTitle": "Major Security Patch and Compatibility Updates",
-      "releaseNoteDescription": "This release includes an important security patch to prevent unauthorized access and data breaches. Additionally, compatibility with the latest hardware and software standards has been improved to ensure seamless operation.",
-      "releaseDate": "2020-07-10",
+      "id": "5e57",
+      "releaseNoteTitle": "New Feature: Dark Mode Added",
+      "releaseNoteDescription": "Introducing Dark Mode for a better user experience in low-light environments.",
+      "releaseDate": "2020-09-05",
       "feedback": [
         {
-          "id": "jaieu",
+          "id": "ptool",
+          "userID": "",
+          "UserName": "",
+          "feedbackText": ""
+        }
+      ]
+    },
+    {
+      "id": "5e58",
+      "releaseNoteTitle": "UI/UX Overhaul and Navigation Improvements",
+      "releaseNoteDescription": "A complete redesign of the user interface and improved navigation for a smoother experience.",
+      "releaseDate": "2020-09-20",
+      "feedback": [
+        {
+          "id": "akbdj",
+          "userID": "",
+          "UserName": "",
+          "feedbackText": ""
+        }
+      ]
+    },
+    {
+      "id": "5e59",
+      "releaseNoteTitle": "Performance Optimization and Bug Fixes",
+      "releaseNoteDescription": "Improved system performance and resolved several reported bugs for a more stable experience.",
+      "releaseDate": "2020-10-10",
+      "feedback": [
+        {
+          "id": "vqpas",
+          "userID": "",
+          "UserName": "",
+          "feedbackText": ""
+        }
+      ]
+    },
+    {
+      "id": "5e60",
+      "releaseNoteTitle": "Security Update: Encryption Enhancements",
+      "releaseNoteDescription": "Updated encryption protocols to improve data security and privacy.",
+      "releaseDate": "2020-11-05",
+      "feedback": [
+        {
+          "id": "rtyfg",
+          "userID": "",
+          "UserName": "",
+          "feedbackText": ""
+        }
+      ]
+    },
+    {
+      "id": "5e61",
+      "releaseNoteTitle": "New Analytics Dashboard",
+      "releaseNoteDescription": "A new dashboard providing insights into usage patterns and performance metrics.",
+      "releaseDate": "2020-11-20",
+      "feedback": [
+        {
+          "id": "mcjkr",
+          "userID": "",
+          "UserName": "",
+          "feedbackText": ""
+        }
+      ]
+    },
+    {
+      "id": "5e62",
+      "releaseNoteTitle": "Bug Fix: Login Authentication",
+      "releaseNoteDescription": "Fixed a bug preventing users from logging in with certain credentials.",
+      "releaseDate": "2021-01-15",
+      "feedback": [
+        {
+          "id": "qwesx",
+          "userID": "",
+          "UserName": "",
+          "feedbackText": ""
+        }
+      ]
+    },
+    {
+      "id": "5e63",
+      "releaseNoteTitle": "Feature Update: Multi-language Support",
+      "releaseNoteDescription": "Added support for multiple languages to broaden accessibility.",
+      "releaseDate": "2021-02-01",
+      "feedback": [
+        {
+          "id": "lzkfw",
+          "userID": "",
+          "UserName": "",
+          "feedbackText": ""
+        }
+      ]
+    },
+    {
+      "id": "5e64",
+      "releaseNoteTitle": "Update: Improved File Upload Speed",
+      "releaseNoteDescription": "Optimized file upload functionality to increase speed and reduce errors.",
+      "releaseDate": "2021-03-10",
+      "feedback": [
+        {
+          "id": "ogwye",
+          "userID": "",
+          "UserName": "",
+          "feedbackText": ""
+        }
+      ]
+    },
+    {
+      "id": "5e65",
+      "releaseNoteTitle": "Maintenance Release: Minor Updates",
+      "releaseNoteDescription": "Several minor updates to improve stability and fix small bugs.",
+      "releaseDate": "2021-04-05",
+      "feedback": [
+        {
+          "id": "knyvf",
           "userID": "",
           "UserName": "",
           "feedbackText": ""
@@ -240,18 +321,6 @@
           "feedbackText": ""
         }
       ]
-    },
-    {
-      "id": "2096",
-      "releaseDate": "2025-02-26",
-      "releaseNoteTitle": "New Release Note Title",
-      "releaseNoteDescription": "New Release Content here."
-    },
-    {
-      "id": "0ee7",
-      "releaseDate": "2025-02-26",
-      "releaseNoteTitle": "New Release Note Title",
-      "releaseNoteDescription": "New Release Content here."
     }
   ]
 }

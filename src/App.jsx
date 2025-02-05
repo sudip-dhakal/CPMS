@@ -29,7 +29,7 @@ const App = () => {
           <Route path="/signup" element={<Signup />} />
           <Route path="/complaints" element={<Your_complaints />} />
           <Route path="/edit" element={<Edit_profile />} />
-          <Route path="/admin/complaints" element={<Complaints />} />
+          <Route path="/complaint" element={<Complaints />} />
           <Route path="/admin/setting" element={<Settings />} />
           <Route path="/admin/home" element={<Admin_home />} />
         </Routes>
