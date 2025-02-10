@@ -28,7 +28,11 @@ const VerticalNavbar = () => {
             Settings
           </li>
           <li
-            onClick={localStorage.removeItem("loggedIn")}
+            onClick={() => {
+              localStorage.removeItem("user");
+              localStorage.setItem("loggedIn", "0");
+              navigation("/");
+            }}
             className="text-xl mt-60 bg-red-700 rounded-md px-4 py-2 cursor-pointer"
           >
             Logout

@@ -40,7 +40,11 @@ const Navbar = () => {
 
           <button
             className="bg-red-600 cursor-pointer text-white py-2 px-4 rounded-lg font-medium flex items-center gap-2 hover:bg-red-500"
-            onClick={() => {}}
+            onClick={() => {
+              localStorage.removeItem("user");
+              localStorage.setItem("loggedIn", "0");
+              navigate("/");
+            }}
           >
             <FaSignOutAlt />
             Logout

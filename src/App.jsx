@@ -21,10 +21,10 @@ const App = () => {
   }
 
   return (
-    <>
-      <BrowserRouter>
-        <Routes>
-          <Route path="/" element={loggedIn ? <Home /> : <Login />} />
+    <BrowserRouter>
+      <Routes>
+        <>
+          <Route path="/" element={<Login />} />)
           <Route path="/home" element={<Home />} />
           <Route path="/signup" element={<Signup />} />
           <Route path="/complaints" element={<Your_complaints />} />
@@ -32,9 +32,9 @@ const App = () => {
           <Route path="/complaint" element={<Complaints />} />
           <Route path="/admin/setting" element={<Settings />} />
           <Route path="/admin/home" element={<Admin_home />} />
-        </Routes>
-      </BrowserRouter>
-    </>
+        </>
+      </Routes>
+    </BrowserRouter>
   );
 };
 

@@ -12,8 +12,17 @@ const UserProvider = ({ children }) => {
       setComplaints(res.data);
     }
   };
+
+  let getLoginData = () => {
+    let data = JSON.parse(localStorage.getItem("user"));
+    if (data) {
+      setSelected(data);
+    }
+  };
+
   useEffect(() => {
     getUser();
+    getLoginData();
   }, []);
 
   return (
