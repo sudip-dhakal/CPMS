@@ -1,7 +1,7 @@
 import axios from "axios";
 
 let api = axios.create({
-  baseURL: "https://cpms-fz1w.onrender.com/adminReleases",
+  baseURL: "http://localhost:3031",
 });
 
 export const doGetAdmin = () => {
