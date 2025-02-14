@@ -3,13 +3,80 @@ import Navbar from "../Components/Reusable/Navbar";
 import user from "../context/userContext";
 import { FaEdit, FaTrash, FaEye } from "react-icons/fa";
 import { doPatchUser } from "../API/UserApi";
+import { TiTick } from "react-icons/ti";
+import { ToastContainer, toast } from "react-toastify";
 
 const Your_complaints = () => {
   const { selected, setSelected } = useContext(user);
   const [feedbackId, setfeedbackId] = useState(null);
+  const [edit, setEdit] = useState(null);
+  const [editData, setEditData] = useState({
+    complainText: "",
+    complainDate: "",
+  });
   console.log(selected);
 
+  const toastMessage = () => {
+    toast(message);
+  };
+
+  let handleEditChange = (e) => {
+    const { name, value } = e.target;
+    setEditData((prev) => {
+      return {
+        ...prev,
+        [name]: value,
+      };
+    });
+  };
+
+  let validation = () => {
+    if (!editData.complainDate || !editData.complainText) {
+      toast.error("Date and Complaint must should be filled.");
+      return false;
+    } else {
+      return true;
+    }
+  };
+
+  let sendUpdatedData = async () => {
+    if (!validation()) return;
+
+    let replyToUpdate = selected.reply.map((r) =>
+      r.id === edit
+        ? {
+            ...r,
+            complainText: editData.complainText,
+            complainDate: editData.complainDate,
+          }
+        : r
+    );
+
+    let response = await doPatchUser(selected.id, { reply: replyToUpdate });
+
+    if (response.status === 200) {
+      toast.success("Data Updated Successfully");
+      setSelected((prev) => {
+        return {
+          ...prev,
+          reply: replyToUpdate,
+        };
+      });
+      setEdit(null);
+    } else {
+      toast.error("Data not sent");
+    }
+  };
+
+  console.log(editData);
+
   let editHandler = (item) => {
+    if (!item.id) return;
+    setEdit(item.id);
+    setEditData({
+      complainDate: item.complainDate || "",
+      complainText: item.complainText || "",
+    });
     console.log(item);
   };
 
@@ -37,8 +104,6 @@ const Your_complaints = () => {
   let seeFeedback = (item) => {
     setfeedbackId(feedbackId === item ? null : item);
   };
-
-  console.log(selected);
 
   return (
     <>
@@ -71,26 +136,57 @@ const Your_complaints = () => {
                     className="border-b odd:bg-gray-100 even:bg-blue-50"
                   >
                     <td className="text-center p-3">{index + 1}</td>
-                    <td className="text-center p-3">{item.complainDate}</td>
+                    <td className="text-center p-3">
+                      {edit === item.id ? (
+                        <input
+                          type="date"
+                          className="border-1 rounded-md border-blue-700 border-dashed px-4 py-1 w-full"
+                          name="complainDate"
+                          value={editData.complainDate}
+                          onChange={handleEditChange}
+                        />
+                      ) : (
+                        <p>{item.complainDate}</p>
+                      )}
+                    </td>
                     <td className="text-left p-3">
                       <div>
-                        <p>{item.complainText}</p>
+                        {edit === item.id ? (
+                          <input
+                            type="text"
+                            className="border-1 rounded-md border-blue-700 border-dashed px-4 py-1 w-full"
+                            name="complainText"
+                            value={editData.complainText}
+                            onChange={handleEditChange}
+                          />
+                        ) : (
+                          <p>{item.complainText}</p>
+                        )}
                         {feedbackId === item.id && (
                           <p className="italic  bg-green-700 text-white p-1 mt-2 rounded-md">
-                            {" "}
                             Reply: {item.replyText}{" "}
                           </p>
                         )}
                       </div>
                     </td>
                     <td className="text-center p-3 flex justify-center gap-3">
-                      <button
-                        className="text-blue-600 hover:text-white  hover:bg-amber-950 hover:rounded-full p-2 cursor-pointer"
-                        onClick={() => editHandler(item)}
-                        title="Edit Complaints"
-                      >
-                        <FaEdit />
-                      </button>
+                      {edit === item.id ? (
+                        <button
+                          className="text-blue-600 hover:text-white  hover:bg-amber-950 hover:rounded-full p-2 cursor-pointer"
+                          title="Update"
+                          onClick={sendUpdatedData}
+                        >
+                          <TiTick size={25} />
+                        </button>
+                      ) : (
+                        <button
+                          className="text-blue-600 hover:text-white  hover:bg-amber-950 hover:rounded-full p-2 cursor-pointer"
+                          onClick={() => editHandler(item)}
+                          title="Edit Complaints"
+                        >
+                          <FaEdit />
+                        </button>
+                      )}
                       <button
                         className="text-red-600 hover:rounded-full  p-2 cursor-pointer hover:bg-amber-950 hover:text-white"
                         onClick={() => deleteHandler(item.id)}
