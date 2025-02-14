@@ -4,7 +4,7 @@ import user from "../../context/userContext";
 
 const Login = () => {
   let navigation = useNavigate();
-  const { complaints, selected, setSelected } = useContext(user);
+  const { complaints, setSelected } = useContext(user);
   const [errorMessage, setErrorMessage] = useState("");
 
   const [loginData, setLoginData] = useState({
@@ -12,8 +12,6 @@ const Login = () => {
     password: "",
     role: null,
   });
-
-  console.log(selected);
 
   let handleInputChange = (e) => {
     const { name, value } = e.target;
@@ -56,7 +54,7 @@ const Login = () => {
       );
     });
     if (user) {
-      // setSelected(user);
+      setSelected(user);
       let loginData = JSON.stringify(user);
       localStorage.setItem("user", loginData);
       localStorage.setItem("loggedIn", "1");
@@ -75,8 +73,6 @@ const Login = () => {
     }
   };
 
-  // console.log(loginData.username, loginData.password, loginData.role);
-
   return (
     <div className="flex items-center justify-center min-h-screen bg-gray-100 p-4">
       <div className="bg-white shadow-lg rounded-lg overflow-hidden w-full max-w-4xl flex">
@@ -94,7 +90,7 @@ const Login = () => {
             Login
           </h2>
           <p className="text-center font-bold text-red-600 ">{errorMessage}</p>
-          <form className="space-y-4" onSubmit={handleSubmit}>
+          <form className="space-y-4">
             <div>
               <label className="block text-gray-700 font-medium mb-1">
                 Username

@@ -5,7 +5,7 @@ import user from "../../context/userContext";
 import { FaUserEdit, FaSignOutAlt } from "react-icons/fa";
 
 const Navbar = () => {
-  const { selected } = useContext(user);
+  const { selected, setSelected } = useContext(user);
   const navigate = useNavigate();
   const [showRegister, setShowRegister] = useState(false);
 
@@ -41,8 +41,10 @@ const Navbar = () => {
           <button
             className="bg-red-600 cursor-pointer text-white py-2 px-4 rounded-lg font-medium flex items-center gap-2 hover:bg-red-500"
             onClick={() => {
+              setSelected({});
               localStorage.removeItem("user");
               localStorage.setItem("loggedIn", "0");
+
               navigate("/");
             }}
           >

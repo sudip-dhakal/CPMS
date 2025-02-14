@@ -1,6 +1,7 @@
 import axios from "axios";
 import React, { useState } from "react";
-import { Link } from "react-router-dom";
+import { Link, useNavigate } from "react-router-dom";
+import { doPostUser } from "../../API/UserApi";
 
 const Signup = () => {
   const [error, setError] = useState("");
@@ -9,7 +10,10 @@ const Signup = () => {
     username: "",
     address: "",
     password: "",
-    role: null,
+    role: "user",
+    reply: [
+      { replyText: "", complainText: "", replyDate: "", complainDate: "" },
+    ],
   });
 
   let handleInputChange = (e) => {
@@ -23,8 +27,7 @@ const Signup = () => {
       !signupData.fullName ||
       !signupData.password ||
       !signupData.username ||
-      !signupData.address ||
-      !signupData.role
+      !signupData.address
     ) {
       setError("Please fill all the credentials");
       return false;
@@ -37,29 +40,28 @@ const Signup = () => {
     } else if (signupData.password.length < 8) {
       setError("Your password should contain at least 8 characters.");
       return false;
-    } else if (!signupData.role) {
-      setError("Select your role");
     } else {
       return true;
     }
   };
 
+  let navigate = useNavigate();
+
   let handleSubmit = async (e) => {
     e.preventDefault();
     let valid = validation();
     if (valid) {
-      try {
-        await axios.post("http://localhost:3031/storedData", {
-          fullName: signupData.fullName,
-          username: signupData.username,
-          password: signupData.password,
-          address: signupData.address,
-          role: signupData.role,
+      let response = await doPostUser(signupData);
+      if (response.status === 201) {
+        setSignUpData({
+          fullName: "",
+          username: "",
+          address: "",
+          password: "",
         });
-
-        console.log("Data sent successfully");
-      } catch (error) {
-        console.log("Error sending data");
+        navigate("/");
+      } else {
+        console.log("data not sent");
       }
     }
   };
@@ -130,37 +132,9 @@ const Signup = () => {
           </div>
 
           <div>
-            <h3 className="text-sm font-medium text-gray-700">Select your role</h3>
-            <div className="flex items-center space-x-4 mt-2">
-              <label className="flex items-center space-x-2">
-                <input
-                  type="radio"
-                  name="role"
-                  value="user"
-                  checked={signupData.role === "user"}
-                  onChange={handleInputChange}
-                  className="form-radio"
-                />
-                <span>User</span>
-              </label>
-              <label className="flex items-center space-x-2">
-                <input
-                  type="radio"
-                  name="role"
-                  value="admin"
-                  checked={signupData.role === "admin"}
-                  onChange={handleInputChange}
-                  className="form-radio"
-                />
-                <span>Admin</span>
-              </label>
-            </div>
-          </div>
-
-          <div>
             <button
               type="submit"
-              className="w-full bg-blue-500 text-white p-2 rounded-md hover:bg-blue-600 transition"
+              className="w-full bg-blue-500 text-white p-2 rounded-md hover:bg-blue-600 transition cursor-pointer"
             >
               Sign Up
             </button>

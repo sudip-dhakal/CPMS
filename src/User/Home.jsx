@@ -1,8 +1,10 @@
-import React from "react";
+import React, { useContext } from "react";
 import Navbar from "../Components/Reusable/Navbar";
 import Notes from "../Components/Reusable/Notes";
+import user from "../context/userContext";
 
 const Home = () => {
+  const { selected } = useContext(user);
   return (
     <>
       <div className="bg-[#cad2c5] w-screen h-full ">

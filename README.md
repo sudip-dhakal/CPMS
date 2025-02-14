@@ -1,8 +1,10 @@
-# React + Vite
+Deployment: This project runs locally. This is not hosted yet due to problem of hosting the json-data running on localhost.
 
-This template provides a minimal setup to get React working in Vite with HMR and some ESLint rules.
+User can signup and login on it.
+But the admin cannot signup. To add admin member, the manual updation on database should be done.
 
-Currently, two official plugins are available:
+This is the project on Complaint Management system where the people can complain their complaints to their authority.
 
-- [@vitejs/plugin-react](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react/README.md) uses [Babel](https://babeljs.io/) for Fast Refresh
-- [@vitejs/plugin-react-swc](https://github.com/vitejs/vite-plugin-react-swc) uses [SWC](https://swc.rs/) for Fast Refresh
+The complaints can be read by all the admin member and release the notice for their client and customer.The user get the message released by admin and can provide the feedback for it.
+
+Also the admin can reply to the respected complaints.

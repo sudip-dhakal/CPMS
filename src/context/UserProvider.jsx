@@ -5,7 +5,6 @@ import { doGetUser } from "../API/UserApi";
 const UserProvider = ({ children }) => {
   const [complaints, setComplaints] = useState([]);
   const [selected, setSelected] = useState({});
-  const [loading, setLoading] = useState(true);
 
   const getUser = async () => {
     let res = await doGetUser();
@@ -25,6 +24,8 @@ const UserProvider = ({ children }) => {
     getUser();
     getLoginData();
   }, []);
+
+  console.log(selected);
 
   return (
     <user.Provider

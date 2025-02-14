@@ -3,7 +3,7 @@ import { useNavigate } from "react-router-dom";
 import user from "../context/userContext";
 
 const VerticalNavbar = () => {
-  const { selected } = useContext(user);
+  const { selected, setSelected } = useContext(user);
   let navigation = useNavigate();
   return (
     <>
@@ -32,8 +32,10 @@ const VerticalNavbar = () => {
           </li>
           <li
             onClick={() => {
+              setSelected({});
               localStorage.removeItem("user");
               localStorage.setItem("loggedIn", "0");
+
               navigation("/");
             }}
             className="text-xl mt-60 bg-red-700 rounded-md px-4 py-2 cursor-pointer"
