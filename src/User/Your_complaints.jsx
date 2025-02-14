@@ -1,11 +1,12 @@
-import React, { useContext } from "react";
+import React, { useContext, useState } from "react";
 import Navbar from "../Components/Reusable/Navbar";
 import user from "../context/userContext";
-import { FaEdit, FaTrash } from "react-icons/fa";
+import { FaEdit, FaTrash, FaEye } from "react-icons/fa";
 import { doPatchUser } from "../API/UserApi";
 
 const Your_complaints = () => {
   const { selected, setSelected } = useContext(user);
+  const [feedbackId, setfeedbackId] = useState(null);
   console.log(selected);
 
   let editHandler = (item) => {
@@ -33,6 +34,12 @@ const Your_complaints = () => {
     prepareForDelete(id);
   };
 
+  let seeFeedback = (item) => {
+    setfeedbackId(feedbackId === item ? null : item);
+  };
+
+  console.log(selected);
+
   return (
     <>
       <Navbar />
@@ -53,6 +60,8 @@ const Your_complaints = () => {
             <tbody>
               {!selected ? (
                 <div>Loading...</div>
+              ) : !selected.reply ? (
+                <div>Loading data...</div>
               ) : selected.reply.length === 0 ? (
                 <div>No data available</div>
               ) : (
@@ -63,19 +72,38 @@ const Your_complaints = () => {
                   >
                     <td className="text-center p-3">{index + 1}</td>
                     <td className="text-center p-3">{item.complainDate}</td>
-                    <td className="text-left p-3">{item.complainText}</td>
+                    <td className="text-left p-3">
+                      <div>
+                        <p>{item.complainText}</p>
+                        {feedbackId === item.id && (
+                          <p className="italic  bg-green-700 text-white p-1 mt-2 rounded-md">
+                            {" "}
+                            Reply: {item.replyText}{" "}
+                          </p>
+                        )}
+                      </div>
+                    </td>
                     <td className="text-center p-3 flex justify-center gap-3">
                       <button
                         className="text-blue-600 hover:text-white  hover:bg-amber-950 hover:rounded-full p-2 cursor-pointer"
                         onClick={() => editHandler(item)}
+                        title="Edit Complaints"
                       >
                         <FaEdit />
                       </button>
                       <button
                         className="text-red-600 hover:rounded-full  p-2 cursor-pointer hover:bg-amber-950 hover:text-white"
                         onClick={() => deleteHandler(item.id)}
+                        title="Delete this row"
                       >
                         <FaTrash />
+                      </button>
+                      <button
+                        className="text-red-699 hover:rounded-full p-2 hover:bg-amber-950 hover:text-white cursor-pointer "
+                        onClick={() => seeFeedback(item.id)}
+                        title="Reply from admin"
+                      >
+                        <FaEye />
                       </button>
                     </td>
                   </tr>

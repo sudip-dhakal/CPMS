@@ -4,7 +4,7 @@ import user from "../../context/userContext";
 
 const Login = () => {
   let navigation = useNavigate();
-  const { complaints, selected } = useContext(user);
+  const { complaints, selected, setSelected } = useContext(user);
   const [errorMessage, setErrorMessage] = useState("");
 
   const [loginData, setLoginData] = useState({
@@ -56,6 +56,7 @@ const Login = () => {
       );
     });
     if (user) {
+      // setSelected(user);
       let loginData = JSON.stringify(user);
       localStorage.setItem("user", loginData);
       localStorage.setItem("loggedIn", "1");

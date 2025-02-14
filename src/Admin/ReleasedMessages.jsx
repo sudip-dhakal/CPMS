@@ -4,12 +4,14 @@ import { ImCross } from "react-icons/im";
 import admin from "../context/adminContext";
 import { VscFeedback } from "react-icons/vsc";
 import { doDeleteAdmin, doPostAdmin, doUpdateAdmin } from "../API/AdminAPI";
+import { useNavigate } from "react-router-dom";
 
 const ReleasedMessages = () => {
   const { adminData, setAdminData } = useContext(admin);
   const [message, setMessage] = useState("");
   const [edit, setEdit] = useState(false);
   const [id, setId] = useState("");
+  let navigation = useNavigate();
   const [release, setRelease] = useState({
     releaseDate: "",
     releaseNoteTitle: "",
@@ -229,6 +231,9 @@ const ReleasedMessages = () => {
               <button
                 type="button"
                 className="cursor-pointer bg-purple-700 text-white flex items-center gap-2 px-4 py-2 rounded-md text-sm font-medium hover:bg-red-700 transition"
+                onClick={() => {
+                  navigation("/admin/feedback");
+                }}
               >
                 <VscFeedback /> Feedbacks
               </button>
