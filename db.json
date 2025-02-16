@@ -7,34 +7,40 @@
       "username": "pravakar_11",
       "password": "password",
       "reply": [
-        {
-          "replyText": "Ok we will do it very soon.",
-          "complainText": "The street lights are broken and need to be fixed.",
-          "complainDate": "2002-04-07",
-          "replyDate": "2025-02-13",
-          "id": 3728732
-        },
-        {
-          "replyText": "Your issue has been resolved, and the street lights are now operational.",
-          "complainText": "The street lights were repaired today.",
-          "complainDate": "2002-07-17",
-          "replyDate": "2002-08-08",
-          "id": 3728733
-        },
-        {
-          "replyText": "",
-          "complainText": "NIice, Hi there",
-          "complainDate": "2025-02-18",
-          "replyDate": "",
-          "id": 22970
-        },
-        {
-          "replyText": "",
-          "complainText": "lorem100\n",
-          "complainDate": "2025-02-17",
-          "replyDate": "",
-          "id": 5463
-        }
+        [
+          {
+            "flag": true,
+            "replyText": "Ok we will do it very soon.",
+            "complainText": "The street lights are broken and need to be fixed.",
+            "complainDate": "2002-04-07",
+            "replyDate": "2025-02-13",
+            "id": 3728732
+          },
+          {
+            "flag": true,
+            "replyText": "Your issue has been resolved, and the street lights are now operational.",
+            "complainText": "The street lights were repaired today.",
+            "complainDate": "2002-07-17",
+            "replyDate": "2002-08-08",
+            "id": 3728733
+          },
+          {
+            "flag": true,
+            "replyText": "",
+            "complainText": "NIice, Hi there",
+            "complainDate": "2025-02-18",
+            "replyDate": "",
+            "id": 22970
+          },
+          {
+            "flag": true,
+            "replyText": "",
+            "complainText": "lorem100\n",
+            "complainDate": "2025-02-17",
+            "replyDate": "",
+            "id": 5463
+          }
+        ]
       ],
       "id": "50b6",
       "confirmPassword": "password",
@@ -47,76 +53,88 @@
       "username": "jane_smith",
       "password": "12345678",
       "reply": [
-        {
-          "replyText": "The potholes have been repaired successfully.",
-          "complainText": "Road repair has been Started",
-          "complainDate": "2023-04-06",
-          "replyDate": "2023-04-10",
-          "id": 3728735
-        },
-        {
-          "replyText": "Not yet",
-          "complainText": "This is the new complaint.",
-          "complainDate": "2025-02-19",
-          "replyDate": "Not yet",
-          "id": 1345427070
-        },
-        {
-          "replyText": "Water supply has been restored.",
-          "complainText": "No water supply in the area.",
-          "complainDate": "2024-06-15",
-          "replyDate": "2024-06-20",
-          "id": 8473629
-        },
-        {
-          "replyText": "Garbage collection is scheduled for tomorrow.",
-          "complainText": "Garbage has not been collected for a week.",
-          "complainDate": "2024-08-10",
-          "replyDate": "2024-08-11",
-          "id": 9283746
-        },
-        {
-          "replyText": "The issue is under review.",
-          "complainText": "Streetlights are not working.",
-          "complainDate": "2024-09-05",
-          "replyDate": "Not yet",
-          "id": 1039284
-        },
-        {
-          "replyText": "The matter has been escalated to the electricity department.",
-          "complainText": "Power outage for more than 10 hours.",
-          "complainDate": "2024-07-22",
-          "replyDate": "2024-07-23",
-          "id": 2736471
-        },
-        {
-          "replyText": "The concerned team has been notified.",
-          "complainText": "Illegal parking blocking my driveway.",
-          "complainDate": "2024-10-01",
-          "replyDate": "2024-10-02",
-          "id": 8473620
-        },
-        {
-          "replyText": "Repairs are in progress.",
-          "complainText": "Broken pipeline causing water leakage.",
-          "complainDate": "2024-11-12",
-          "replyDate": "Not yet",
-          "id": 9274610
-        },
-        {
-          "replyText": "The animal control team has been dispatched.",
-          "complainText": "Stray dogs causing issues in the neighborhood.",
-          "complainDate": "2024-12-05",
-          "replyDate": "2024-12-06",
-          "id": 7463821
-        },
-        {
-          "replyText": "Issue has been resolved.",
-          "complainText": "Sewage blockage in our street.",
-          "complainDate": "2025-01-15",
-          "replyDate": "2025-01-18",
-          "id": 1837462
-        }
+        [
+          {
+            "flag": true,
+            "replyText": "The potholes have been repaired successfully.",
+            "complainText": "Road repair has been Started",
+            "complainDate": "2023-04-06",
+            "replyDate": "2023-04-10",
+            "id": 3728735
+          },
+          {
+            "flag": true,
+            "replyText": "Not yet",
+            "complainText": "This is the new complaint.",
+            "complainDate": "2025-02-19",
+            "replyDate": "Not yet",
+            "id": 1345427070
+          },
+          {
+            "flag": true,
+            "replyText": "Water supply has been restored.",
+            "complainText": "No water supply in the area.",
+            "complainDate": "2024-06-15",
+            "replyDate": "2024-06-20",
+            "id": 8473629
+          },
+          {
+            "flag": true,
+            "replyText": "Garbage collection is scheduled for tomorrow.",
+            "complainText": "Garbage has not been collected for a week.",
+            "complainDate": "2024-08-10",
+            "replyDate": "2024-08-11",
+            "id": 9283746
+          },
+          {
+            "flag": true,
+            "replyText": "The issue is under review.",
+            "complainText": "Streetlights are not working.",
+            "complainDate": "2024-09-05",
+            "replyDate": "Not yet",
+            "id": 1039284
+          },
+          {
+            "flag":true,
+            "replyText": "The matter has been escalated to the electricity department.",
+            "complainText": "Power outage for more than 10 hours.",
+            "complainDate": "2024-07-22",
+            "replyDate": "2024-07-23",
+            "id": 2736471
+          },
+          {
+            "flag": true,
+            "replyText": "The concerned team has been notified.",
+            "complainText": "Illegal parking blocking my driveway.",
+            "complainDate": "2024-10-01",
+            "replyDate": "2024-10-02",
+            "id": 8473620
+          },
+          {
+            "flag": true,
+            "replyText": "Repairs are in progress.",
+            "complainText": "Broken pipeline causing water leakage.",
+            "complainDate": "2024-11-12",
+            "replyDate": "Not yet",
+            "id": 9274610
+          },
+          {
+            "flag": true,
+            "replyText": "The animal control team has been dispatched.",
+            "complainText": "Stray dogs causing issues in the neighborhood.",
+            "complainDate": "2024-12-05",
+            "replyDate": "2024-12-06",
+            "id": 7463821
+          },
+          {
+            "flag":true,
+            "replyText": "Issue has been resolved.",
+            "complainText": "Sewage blockage in our street.",
+            "complainDate": "2025-01-15",
+            "replyDate": "2025-01-18",
+            "id": 1837462
+          }
+        ]
       ],
       "id": "78c9"
     },
@@ -144,6 +162,7 @@
       "password": "M!ke2023",
       "reply": [
         {
+          "flag": true,
           "replyText": "We acknowledge your complaint about the water supply issue.",
           "complainText": "The water supply has been inconsistent for the past few days.",
           "complainDate": "2023-06-18",
@@ -151,6 +170,7 @@
           "id": 3728737
         },
         {
+          "flag": false,
           "replyText": "The water supply issue has been resolved.",
           "complainText": "Water supply is back to normal now.",
           "complainDate": "2023-06-25",
@@ -169,6 +189,7 @@
       "role": "user",
       "reply": [
         {
+          "flag": true,
           "replyText": "",
           "complainText": "",
           "replyDate": "",
@@ -177,6 +198,7 @@
       ]
     },
     {
+      "flag": true,
       "id": "e67b",
       "fullName": "abcd",
       "username": "ijkl",

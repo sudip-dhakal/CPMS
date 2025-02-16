@@ -11,6 +11,7 @@ import Admin_home from "./Admin/Admin_home";
 import Complaints from "./Admin/Complaints";
 import Settings from "./Admin/Settings";
 import Feedbacks from "./Admin/Feedbacks";
+import Replies from "./Admin/Replies";
 
 const App = () => {
   const { complaints, setComplaints } = useContext(user);
@@ -34,6 +35,7 @@ const App = () => {
           <Route path="/admin/setting" element={<Settings />} />
           <Route path="/admin/home" element={<Admin_home />} />
           <Route path="/admin/feedback" element={<Feedbacks />} />
+          <Route path="/repliedMessage" element={<Replies />} />
         </>
       </Routes>
     </BrowserRouter>

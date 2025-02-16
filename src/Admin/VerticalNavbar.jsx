@@ -13,19 +13,26 @@ const VerticalNavbar = () => {
         </h1>
         <ul className="p-4">
           <li
+            onClick={() => navigation("/admin/home")}
+            className="text-xl mt-6 bg-red-700 rounded-md px-4 py-2 cursor-pointer"
+          >
+            Home
+          </li>
+          <li
             className="text-xl mt-6 bg-red-700 rounded-md px-4 py-2 cursor-pointer"
             onClick={() => navigation("/complaint")}
           >
             Complaints
           </li>
           <li
-            onClick={() => navigation("/admin/home")}
-            className="text-xl mt-6 bg-red-700 rounded-md px-4 py-2 cursor-pointer"
+            className="text-xl mt-6 bg-red-700 rounded-md px-4 py-2 cursor-not-allowed"
+            onClick={() => navigation("/repliedMessage")}
           >
-            Release Message
+            Replies
           </li>
+
           <li
-            // onClick={() => navigation("/admin/setting")}
+            onClick={() => navigation("/admin/setting")}
             className="text-xl mt-6 bg-red-700 rounded-md px-4 py-2 cursor-not-allowed"
           >
             Settings
