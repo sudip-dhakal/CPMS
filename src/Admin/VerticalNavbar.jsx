@@ -25,7 +25,7 @@ const VerticalNavbar = () => {
             Complaints
           </li>
           <li
-            className="text-xl mt-6 bg-red-700 rounded-md px-4 py-2 cursor-not-allowed"
+            className="text-xl mt-6 bg-red-700 rounded-md px-4 py-2 cursor-pointer"
             onClick={() => navigation("/repliedMessage")}
           >
             Replies
@@ -45,7 +45,7 @@ const VerticalNavbar = () => {
 
               navigation("/");
             }}
-            className="text-xl mt-60 bg-red-700 rounded-md px-4 py-2 cursor-pointer"
+            className="text-xl mt-50 bg-red-700 rounded-md px-4 py-2 cursor-pointer"
           >
             Logout
           </li>

@@ -25,7 +25,7 @@ const UserProvider = ({ children }) => {
     getLoginData();
   }, []);
 
-  console.log(selected);
+  // console.log(selected);
 
   return (
     <user.Provider

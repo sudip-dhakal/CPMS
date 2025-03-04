@@ -1,13 +1,17 @@
 import axios from "axios";
-import React, { useEffect, useState } from "react";
+import React, { useContext, useEffect, useState } from "react";
 import { ImCross } from "react-icons/im";
 import { doUpdateAdmin } from "../API/AdminAPI";
+import user from "../context/userContext";
 
 const ReleaseNoteDescription = ({ description, setShowDescription }) => {
+  const { selected } = useContext(user);
   const [desc, setDesc] = useState({});
   const [openClose, setOpenClose] = useState(false);
   const [feedback, setFeedback] = useState("");
   const [message, setMessage] = useState("");
+
+  console.log(selected);
 
   useEffect(() => {
     setDesc(description);
@@ -18,7 +22,7 @@ const ReleaseNoteDescription = ({ description, setShowDescription }) => {
     {
       id: Math.floor(Math.random() * (87214129 - 8271) + 1) + 8271,
       userID: desc.id,
-      UserName: desc.fullName,
+      UserName: selected.fullName,
       feedbackText: feedback,
     },
   ];
@@ -28,6 +32,7 @@ const ReleaseNoteDescription = ({ description, setShowDescription }) => {
 
     if (response.status === 200) {
       console.log("send successful");
+      setOpenClose(false);
     } else {
       console.log("send failure");
     }
@@ -73,7 +78,10 @@ const ReleaseNoteDescription = ({ description, setShowDescription }) => {
           <div className="mt-6">
             <button
               className="bg-red-800 text-white px-4 py-2 rounded-lg hover:bg-red-700 transition cursor-pointer"
-              onClick={() => setOpenClose(true)}
+              onClick={() => {
+                setOpenClose(true);
+                setMessage("");
+              }}
             >
               Give Feedback
             </button>
@@ -86,6 +94,7 @@ const ReleaseNoteDescription = ({ description, setShowDescription }) => {
               value={feedback}
               onChange={(e) => {
                 setFeedback(e.target.value);
+                setMessage("");
               }}
             />
             <button

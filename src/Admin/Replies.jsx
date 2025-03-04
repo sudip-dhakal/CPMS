@@ -7,99 +7,14 @@ const Replies = () => {
   const { complaints } = useContext(user);
   console.log(complaints);
 
-  const data = [
-    {
-      fullName: "Pravakar Rijal",
-      role: "user",
-      address: "address",
-      username: "pravakar_11",
-      password: "password",
-      reply: [
-        {
-          flag: true,
-          replyText: "Ok we will do it very soon.",
-          complainText: "The street lights are broken and need to be fixed.",
-          complainDate: "2002-04-07",
-          replyDate: "2025-02-13",
-          id: 3728732,
-        },
-        {
-          flag: false,
-          replyText:
-            "Your issue has been resolved, and the street lights are now operational.",
-          complainText: "The street lights were repaired today.",
-          complainDate: "2002-07-17",
-          replyDate: "2002-08-08",
-          id: 3728733,
-        },
-        {
-          flag: true,
-          replyText: "",
-          complainText: "NIice, Hi there",
-          complainDate: "2025-02-18",
-          replyDate: "",
-          id: 22970,
-        },
-      ],
-      id: "50b6",
-      confirmPassword: "password",
-    },
-    {
-      fullName: "Sudip Bro",
-      role: "user",
-      address: "456 Elm St, Springfield, USA",
-      username: "jane_smith",
-      password: "12345678",
-      reply: [
-        {
-          flag: true,
-          replyText: "The potholes have been repaired successfully.",
-          complainText: "Road repair has been Started",
-          complainDate: "2023-04-06",
-          replyDate: "2023-04-10",
-          id: 3728735,
-        },
-        {
-          flag: false,
-          replyText: "Not yet",
-          complainText: "This is the new complaint.",
-          complainDate: "2025-02-19",
-          replyDate: "Not yet",
-          id: 1345427070,
-        },
-        {
-          flag: true,
-          replyText: "Water supply has been restored.",
-          complainText: "No water supply in the area.",
-          complainDate: "2024-06-15",
-          replyDate: "2024-06-20",
-          id: 8473629,
-        },
-      ],
-      id: "78c9",
-    },
-  ];
-
-  const filteredData = data
-    .map((user) => ({
-      ...user,
-      reply: user.reply.filter((reply) => reply.flag === false),
-    }))
-    .filter((user) => user.reply.length > 0);
-
-  console.log(filteredData);
-
   const handleReplyClick = () => {
     setShowTextarea(true);
   };
-
   return (
     <div>
       <div>
         <VerticalNavbar />
       </div>
-
-      
 
       <div className="flex">
         <div className="w-[18%]"></div>
