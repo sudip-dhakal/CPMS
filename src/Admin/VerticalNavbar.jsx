@@ -16,7 +16,7 @@ const VerticalNavbar = () => {
             onClick={() => navigation("/admin/home")}
             className="text-xl mt-6 bg-red-700 rounded-md px-4 py-2 cursor-pointer"
           >
-            Home
+            Notes
           </li>
           <li
             className="text-xl mt-6 bg-red-700 rounded-md px-4 py-2 cursor-pointer"

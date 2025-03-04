@@ -206,14 +206,14 @@
   "adminReleases": [
     {
       "id": "5e56",
-      "releaseNoteTitle": "Critical Bug Fix ",
+      "releaseNoteTitle": "Critical Bug Fixes",
       "releaseNoteDescription": "This release addresses several critical bugs affecting user experience and improves overall system performance.",
       "releaseDate": "2020-08-15",
       "feedback": [
         {
           "id": 39476214,
           "userID": "5e56",
-          "UserName": "Sudip Bro",
+          "UserName": "John Doe",
           "feedbackText": "Updated feedback"
         }
       ]
@@ -226,9 +226,9 @@
       "feedback": [
         {
           "id": "ptool",
-          "userID": "",
-          "UserName": "",
-          "feedbackText": ""
+          "userID": "unknown",
+          "UserName": "Alice Smith",
+          "feedbackText": "Loving the new dark mode, very sleek!"
         }
       ]
     },
@@ -240,9 +240,9 @@
       "feedback": [
         {
           "id": "akbdj",
-          "userID": "",
-          "UserName": "",
-          "feedbackText": ""
+          "userID": "unknown",
+          "UserName": "Bob Johnson",
+          "feedbackText": "The redesign is fantastic, navigation feels so much smoother!"
         }
       ]
     },
@@ -254,9 +254,9 @@
       "feedback": [
         {
           "id": "vqpas",
-          "userID": "",
-          "UserName": "",
-          "feedbackText": ""
+          "userID": "unknown",
+          "UserName": "Cathy Lee",
+          "feedbackText": "The performance is much better now, no crashes anymore."
         }
       ]
     },
@@ -268,9 +268,9 @@
       "feedback": [
         {
           "id": "rtyfg",
-          "userID": "",
-          "UserName": "",
-          "feedbackText": ""
+          "userID": "unknown",
+          "UserName": "David Kim",
+          "feedbackText": "Feels safer using the app now with the encryption improvements."
         }
       ]
     },
@@ -282,9 +282,9 @@
       "feedback": [
         {
           "id": "mcjkr",
-          "userID": "",
-          "UserName": "",
-          "feedbackText": ""
+          "userID": "unknown",
+          "UserName": "Emma Brown",
+          "feedbackText": "Great addition, the new dashboard makes tracking much easier."
         }
       ]
     },
@@ -296,9 +296,9 @@
       "feedback": [
         {
           "id": "qwesx",
-          "userID": "",
-          "UserName": "",
-          "feedbackText": ""
+          "userID": "unknown",
+          "UserName": "Frank White",
+          "feedbackText": "Finally able to log in, thank you for fixing this issue!"
         }
       ]
     },
@@ -310,13 +310,14 @@
       "feedback": [
         {
           "id": "lzkfw",
-          "userID": "",
-          "UserName": "",
-          "feedbackText": ""
+          "userID": "unknown",
+          "UserName": "Grace Green",
+          "feedbackText": "App feels more accessible now with the added languages."
         },
         {
           "id": 66673479,
           "userID": "5e63",
+          "UserName": "Henry Wilson",
           "feedbackText": "ok"
         }
       ]
@@ -329,9 +330,9 @@
       "feedback": [
         {
           "id": "ogwye",
-          "userID": "",
-          "UserName": "",
-          "feedbackText": ""
+          "userID": "unknown",
+          "UserName": "Ivy Thomas",
+          "feedbackText": "File uploads are noticeably faster now, very efficient!"
         }
       ]
     },
@@ -339,12 +340,13 @@
       "id": "4a41",
       "releaseNoteTitle": "Critical Security Patch and Stability Fixes",
       "releaseNoteDescription": "A critical security vulnerability has been patched in this release, addressing potential risks related to unauthorized access. Stability improvements have been made to prevent unexpected crashes and enhance overall system reliability. We strongly recommend updating to this version to maintain a secure and efficient environment.",
+      "releaseDate": "2021-03-10",
       "feedback": [
         {
           "id": "dfae",
-          "userID": "",
-          "UserName": "",
-          "feedbackText": ""
+          "userID": "unknown",
+          "UserName": "Jack Davis",
+          "feedbackText": "Thanks for the security patch! The app feels much safer now."
         }
       ]
     }

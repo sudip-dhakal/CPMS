@@ -232,7 +232,7 @@ const ReleasedMessages = () => {
                 type="button"
                 className="cursor-pointer bg-purple-700 text-white flex items-center gap-2 px-4 py-2 rounded-md text-sm font-medium hover:bg-red-700 transition"
                 onClick={() => {
-                  navigation("/admin/feedback");
+                  navigation("/admin/feedback", { state: { id: Item.id } });
                 }}
               >
                 <VscFeedback /> Feedbacks
