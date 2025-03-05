@@ -5,7 +5,7 @@ import user from "../context/userContext";
 const Replies = () => {
   const [showTextarea, setShowTextarea] = useState(false);
   const { complaints } = useContext(user);
-  console.log(complaints);
+  // console.log(complaints);
 
   const handleReplyClick = () => {
     setShowTextarea(true);
@@ -46,7 +46,7 @@ const Replies = () => {
                   className="bg-blue-500 text-white px-4 py-2 rounded-md"
                   onClick={handleReplyClick}
                 >
-                  Reply Again
+                  Edit
                 </button>
               ) : (
                 <div className="mt-2">
@@ -54,7 +54,7 @@ const Replies = () => {
                     className="w-full border p-2 rounded-md"
                     placeholder="Write your reply..."
                   ></textarea>
-                  <button className="bg-green-500 text-white px-4 py-2 mt-2 rounded-md">
+                  <button className="bg-green-500 text-white px-4 py-2 mt-2 rounded-md cursor-pointer">
                     Submit
                   </button>
                 </div>

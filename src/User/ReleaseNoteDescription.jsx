@@ -3,6 +3,7 @@ import React, { useContext, useEffect, useState } from "react";
 import { ImCross } from "react-icons/im";
 import { doUpdateAdmin } from "../API/AdminAPI";
 import user from "../context/userContext";
+import { toast } from "react-toastify";
 
 const ReleaseNoteDescription = ({ description, setShowDescription }) => {
   const { selected } = useContext(user);
@@ -31,18 +32,18 @@ const ReleaseNoteDescription = ({ description, setShowDescription }) => {
     let response = await doUpdateAdmin(desc.id, { feedback: updatedFeedback });
 
     if (response.status === 200) {
-      console.log("send successful");
+      toast.success("Feedback sent. ");
       setOpenClose(false);
     } else {
-      console.log("send failure");
+      toast.error("Feedback not sent.");
     }
-    setMessage("Feedback sent !!!");
+
     setFeedback("");
   };
 
   let validation = () => {
     if (!feedback) {
-      setMessage("Please write some feedback");
+      toast.warning("Please write some feedback");
       return false;
     } else {
       return true;

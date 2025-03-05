@@ -1,6 +1,7 @@
 import React, { useContext, useState } from "react";
 import user from "../../context/userContext";
 import { doPatchUser } from "../../API/UserApi";
+import { toast } from "react-toastify";
 
 const ComplainBox = () => {
   const { complaints } = useContext(user);
@@ -14,7 +15,7 @@ const ComplainBox = () => {
 
   let validation = () => {
     if (!reply.replyText.trim()) {
-      setError("Please enter a reply.");
+      toast.warning("Please enter a reply.");
       return false;
     }
     setError("");
@@ -41,9 +42,9 @@ const ComplainBox = () => {
     });
 
     if (response.status === 200) {
-      console.log("Reply updated successfully");
+      toast.success("Reply updated successfully");
     } else {
-      console.log("Failed to update reply");
+      toast.error("Failed to update reply");
     }
   };
 

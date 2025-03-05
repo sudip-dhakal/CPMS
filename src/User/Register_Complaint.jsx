@@ -2,6 +2,7 @@ import React, { useContext, useState } from "react";
 import { ImCross } from "react-icons/im";
 import { doPatchUser } from "../API/UserApi";
 import user from "../context/userContext";
+import { toast } from "react-toastify";
 
 const Register_Complaint = ({ setShowRegister }) => {
   const { selected, setSelected } = useContext(user);
@@ -23,7 +24,7 @@ const Register_Complaint = ({ setShowRegister }) => {
 
   let validate = () => {
     if (!data.complainDate || !data.complainText) {
-      setErrorMessage("Both fields should be filled");
+      toast.error("Both fields should be filled");
       return false;
     } else {
       return true;
@@ -45,7 +46,7 @@ const Register_Complaint = ({ setShowRegister }) => {
     let response = await doPatchUser(selected.id, { reply: updateData });
 
     if (response.status === 200) {
-      console.log("Data send Successful");
+      toast.success("Your Complaint has been registered.");
       setSelected((prev) => {
         return {
           ...prev,
@@ -55,7 +56,7 @@ const Register_Complaint = ({ setShowRegister }) => {
 
       setShowRegister(false);
     } else {
-      console.log("No data sent successful");
+      toast.error("Cannot register complaint, try again later.");
     }
   };
 

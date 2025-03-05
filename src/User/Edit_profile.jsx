@@ -3,6 +3,7 @@ import Navbar from "../Components/Reusable/Navbar";
 import { useNavigate } from "react-router-dom";
 import user from "../context/userContext";
 import { doPatchUser } from "../API/UserApi";
+import { toast } from "react-toastify";
 
 const Edit_profile = () => {
   const { selected, setSelected } = useContext(user);
@@ -32,10 +33,10 @@ const Edit_profile = () => {
       !credentails.confirmPassword ||
       !credentails.address
     ) {
-      setMessage("All the field must be filled");
+      toast.error("All the field must be filled");
       return false;
     } else if (credentails.password !== credentails.confirmPassword) {
-      setMessage("The password and confirm password didn't match");
+     toast.error("The password and confirm password didn't match");
       return false;
     } else {
       setMessage("");
@@ -54,7 +55,7 @@ const Edit_profile = () => {
     let response = await doPatchUser(selected.id, updateData);
 
     if (response.status === 200) {
-      console.log("Data sent successfully");
+      toast.error("Data sent successfully");
       setSelected((prev) => {
         return {
           ...prev,

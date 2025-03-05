@@ -3,6 +3,7 @@ import Register_Complaint from "../../User/Register_Complaint";
 import { useNavigate } from "react-router-dom";
 import user from "../../context/userContext";
 import { FaUserEdit, FaSignOutAlt } from "react-icons/fa";
+import { toast } from "react-toastify";
 
 const Navbar = () => {
   const { selected, setSelected } = useContext(user);
@@ -44,7 +45,7 @@ const Navbar = () => {
               setSelected({});
               localStorage.removeItem("user");
               localStorage.setItem("loggedIn", "0");
-
+              toast.success("Logged out successfully.")
               navigate("/");
             }}
           >

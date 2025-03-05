@@ -5,6 +5,7 @@ import admin from "../context/adminContext";
 import { VscFeedback } from "react-icons/vsc";
 import { doDeleteAdmin, doPostAdmin, doUpdateAdmin } from "../API/AdminAPI";
 import { useNavigate } from "react-router-dom";
+import { toast } from "react-toastify";
 
 const ReleasedMessages = () => {
   const { adminData, setAdminData } = useContext(admin);
@@ -44,7 +45,7 @@ const ReleasedMessages = () => {
       setAdminData((prev) => {
         return [...prev, release];
       });
-      console.log("Data sent successfully");
+      toast.success("Message Release Successful. ");
       setMessage("");
       setRelease({
         releaseDate: "",
@@ -52,7 +53,7 @@ const ReleasedMessages = () => {
         releaseNoteDescription: "",
       });
     } else {
-      console.log("Data sent failure");
+      toast.error("Message Release Failure. ");
     }
   };
 
@@ -70,10 +71,10 @@ const ReleasedMessages = () => {
     let res = await doDeleteAdmin(id);
 
     if (res.status == 200) {
-      console.log("Deletion successful");
+      toast.success("Deletion Successful. ");
       setAdminData(newData);
     } else {
-      console.log("Deletion error");
+      toast.error("Deletion error");
     }
   };
 
@@ -101,11 +102,11 @@ const ReleasedMessages = () => {
   let editNew = async () => {
     let response = await doUpdateAdmin(id, release);
     if (response.status === 200) {
-      console.log("Edition successful");
+      toast.success("Edition successful");
       handleClear();
       setEdit(false);
     } else {
-      console.log("Edition Failure");
+      toast.error("Edition Failure");
     }
   };
 

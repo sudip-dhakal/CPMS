@@ -4,7 +4,7 @@ import user from "../context/userContext";
 import { FaEdit, FaTrash, FaEye } from "react-icons/fa";
 import { doPatchUser } from "../API/UserApi";
 import { TiTick } from "react-icons/ti";
-import { ToastContainer, toast } from "react-toastify";
+import { toast } from "react-toastify";
 
 const Your_complaints = () => {
   const { selected, setSelected } = useContext(user);
@@ -14,11 +14,6 @@ const Your_complaints = () => {
     complainText: "",
     complainDate: "",
   });
-  console.log(selected);
-
-  const toastMessage = () => {
-    toast(message);
-  };
 
   let handleEditChange = (e) => {
     const { name, value } = e.target;
@@ -85,7 +80,7 @@ const Your_complaints = () => {
     let deleteData = selected.reply.filter((u) => u.id !== id);
     let response = await doPatchUser(selected.id, { reply: deleteData });
     if (response.status === 200) {
-      console.log("Deletion successful");
+      toast.success("Deletion successful");
       setSelected((prev) => {
         return {
           ...prev,
@@ -93,7 +88,7 @@ const Your_complaints = () => {
         };
       });
     } else {
-      console.log("Delete not successful");
+      toast.error("Delete not successful");
     }
   };
 

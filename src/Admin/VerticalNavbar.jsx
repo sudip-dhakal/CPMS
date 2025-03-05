@@ -1,6 +1,7 @@
 import React, { useContext } from "react";
 import { useNavigate } from "react-router-dom";
 import user from "../context/userContext";
+import { toast } from "react-toastify";
 
 const VerticalNavbar = () => {
   const { selected, setSelected } = useContext(user);
@@ -42,7 +43,7 @@ const VerticalNavbar = () => {
               setSelected({});
               localStorage.removeItem("user");
               localStorage.setItem("loggedIn", "0");
-
+              toast.success("Logged out successfully.");
               navigation("/");
             }}
             className="text-xl mt-50 bg-red-700 rounded-md px-4 py-2 cursor-pointer"

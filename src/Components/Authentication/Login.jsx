@@ -1,6 +1,7 @@
-import React, { useContext, useState } from "react";
+import { useContext, useState } from "react";
 import { Link, useNavigate } from "react-router-dom";
 import user from "../../context/userContext";
+import { toast } from "react-toastify";
 
 const Login = () => {
   let navigation = useNavigate();
@@ -24,21 +25,21 @@ const Login = () => {
       ? navigation("/home")
       : role == "admin"
       ? navigation("/admin/home")
-      : console.log("No role identified for this credential");
+      : toast.error("No role identified for this credential");
   };
 
   let validation = () => {
     if (!loginData.username || !loginData.password) {
-      setErrorMessage("All credentials must be filled ! ");
+      toast.error("All credentials must be filled ! ");
       return false;
     } else if (loginData.username.length < 4) {
-      setErrorMessage("Username length must be of 4 characters. ");
+      toast.error("Username length must be of 4 characters. ");
       return false;
     } else if (loginData.password.length < 8) {
-      setErrorMessage("Password length must be at least 8 characters.");
+      toast.error("Password length must be at least 8 characters.");
       return false;
     } else if (!loginData.role) {
-      setErrorMessage("Select role");
+      toast.error("Select role");
       return false;
     } else {
       return true;
@@ -58,8 +59,9 @@ const Login = () => {
       let loginData = JSON.stringify(user);
       localStorage.setItem("user", loginData);
       localStorage.setItem("loggedIn", "1");
+      toast.success(`Logged in successful with ${user.fullName}`);
     } else {
-      setErrorMessage("Invalid username or password");
+      toast.error(" Invalid Username or password ");
     }
 
     setUpForLogin(user.role);
@@ -156,7 +158,7 @@ const Login = () => {
           </form>
           <div className="mt-4 text-center">
             <p className="text-gray-700">
-              Don't have an account?{" "}
+              Don't have an account?
               <Link to="/signup" className="text-blue-500 hover:underline">
                 Register
               </Link>

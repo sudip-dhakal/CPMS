@@ -1,9 +1,13 @@
 import axios from "axios";
-import React, { useState } from "react";
+import React, { useContext, useState } from "react";
 import { Link, useNavigate } from "react-router-dom";
 import { doPostUser } from "../../API/UserApi";
+import { toast } from "react-toastify";
+import user from "../../context/userContext";
 
 const Signup = () => {
+  const { complaints, setComplaints } = useContext(user);
+  console.log(complaints);
   const [error, setError] = useState("");
   const [signupData, setSignUpData] = useState({
     fullName: "",
@@ -29,16 +33,16 @@ const Signup = () => {
       !signupData.username ||
       !signupData.address
     ) {
-      setError("Please fill all the credentials");
+      toast.error("Please fill all the credentials");
       return false;
     } else if (signupData.fullName.length < 4) {
-      setError("Your name must be of at least 4 characters. ");
+      toast.error("Your name must be of at least 4 characters. ");
       return false;
     } else if (signupData.username.length < 4) {
-      setError("Your username must be of at least 4 characters. ");
+      toast.error("Your username must be of at least 4 characters. ");
       return false;
     } else if (signupData.password.length < 8) {
-      setError("Your password should contain at least 8 characters.");
+      toast.error("Your password should contain at least 8 characters.");
       return false;
     } else {
       return true;
@@ -59,14 +63,16 @@ const Signup = () => {
           address: "",
           password: "",
         });
+        toast.success("Sign up Successful, Login for use.");
+        setComplaints([...complaints, { signupData }]);
         navigate("/");
       } else {
-        console.log("data not sent");
+        toast.error("Signup Failed, try again later");
       }
     }
   };
 
-  console.log(signupData);
+  // console.log(signupData);
 
   return (
     <div className="flex justify-center items-center min-h-screen bg-gray-100">
