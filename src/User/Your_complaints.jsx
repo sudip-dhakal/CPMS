@@ -1,19 +1,24 @@
 import React, { useContext, useState } from "react";
 import Navbar from "../Components/Reusable/Navbar";
 import user from "../context/userContext";
+import Delete from "../Components/Reusable/Delete";
 import { FaEdit, FaTrash, FaEye } from "react-icons/fa";
 import { doPatchUser } from "../API/UserApi";
 import { TiTick } from "react-icons/ti";
 import { toast } from "react-toastify";
 
 const Your_complaints = () => {
+  const [openDelete, setOpenDelete] = useState(false);
   const { selected, setSelected } = useContext(user);
+  const [deleteId, setDeleteId] = useState(null);
   const [feedbackId, setfeedbackId] = useState(null);
   const [edit, setEdit] = useState(null);
   const [editData, setEditData] = useState({
     complainText: "",
     complainDate: "",
   });
+
+  console.log(openDelete);
 
   let handleEditChange = (e) => {
     const { name, value } = e.target;
@@ -184,7 +189,11 @@ const Your_complaints = () => {
                       )}
                       <button
                         className="text-red-600 hover:rounded-full  p-2 cursor-pointer hover:bg-amber-950 hover:text-white"
-                        onClick={() => deleteHandler(item.id)}
+                        onClick={() => {
+                          // deleteHandler(item.id);
+                          setDeleteId(item.id);
+                          setOpenDelete(true);
+                        }}
                         title="Delete this row"
                       >
                         <FaTrash />
@@ -202,6 +211,12 @@ const Your_complaints = () => {
               )}
             </tbody>
           </table>
+          {openDelete && (
+            <Delete
+              setOpenDelete={setOpenDelete}
+              deleteData={() => deleteHandler(deleteId)}
+            />
+          )}
         </div>
       </div>
     </>

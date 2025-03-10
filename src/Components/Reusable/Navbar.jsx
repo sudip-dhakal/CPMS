@@ -28,7 +28,10 @@ const Navbar = () => {
           </button>
           <button
             className="bg-yellow-500 text-black py-2 px-4 rounded-lg font-medium hover:bg-yellow-400 cursor-pointer"
-            onClick={() => setShowRegister(true)}
+            onClick={() => {
+              setShowRegister(true);
+              window.scrollTo({ top: 0, behavior: "smooth" });
+            }}
           >
             Register Complaint
           </button>
@@ -45,7 +48,7 @@ const Navbar = () => {
               setSelected({});
               localStorage.removeItem("user");
               localStorage.setItem("loggedIn", "0");
-              toast.success("Logged out successfully.")
+              toast.success("Logged out successfully.");
               navigate("/");
             }}
           >

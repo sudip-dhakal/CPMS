@@ -6,8 +6,10 @@ import { VscFeedback } from "react-icons/vsc";
 import { doDeleteAdmin, doPostAdmin, doUpdateAdmin } from "../API/AdminAPI";
 import { useNavigate } from "react-router-dom";
 import { toast } from "react-toastify";
+import Delete from "../Components/Reusable/Delete";
 
 const ReleasedMessages = () => {
+  const [openDelete, setOpenDelete] = useState(false);
   const { adminData, setAdminData } = useContext(admin);
   const [message, setMessage] = useState("");
   const [edit, setEdit] = useState(false);
@@ -223,7 +225,10 @@ const ReleasedMessages = () => {
               </button>
               <button
                 type="button"
-                onClick={() => deleteHandler(Item.id)}
+                onClick={() => {
+                  deleteHandler(Item.id);
+                  // setOpenDelete(true);
+                }}
                 className="cursor-pointer bg-red-600 text-white flex items-center gap-2 px-4 py-2 rounded-md text-sm font-medium hover:bg-red-700 transition"
               >
                 <ImCross /> Delete
@@ -239,6 +244,7 @@ const ReleasedMessages = () => {
                 <VscFeedback /> Feedbacks
               </button>
             </div>
+            {openDelete && <Delete />}
           </div>
         ))
       )}
