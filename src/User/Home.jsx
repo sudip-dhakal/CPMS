@@ -4,7 +4,6 @@ import Notes from "../Components/Reusable/Notes";
 import user from "../context/userContext";
 
 const Home = () => {
-  // const { selected } = useContext(user);
   return (
     <>
       <div className="bg-[#cad2c5] w-screen h-full ">

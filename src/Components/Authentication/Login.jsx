@@ -77,9 +77,9 @@ const Login = () => {
 
   return (
     <div className="flex items-center justify-center min-h-screen bg-gray-100 p-4">
-      <div className="bg-white shadow-lg rounded-lg overflow-hidden w-full max-w-4xl flex">
-        <div className="w-1/2 bg-blue-500 text-white flex flex-col justify-center items-center p-8">
-          <h1 className="text-4xl font-bold text-center mb-4">
+      <div className="bg-white shadow-lg rounded-lg overflow-hidden w-full max-w-4xl flex flex-col  md:flex-row">
+        <div className="md:w-1/2 bg-blue-500 text-white flex flex-col justify-center items-center p-8">
+          <h1 className="text-3xl md:text-4xl font-bold text-center mb-4">
             Complaint Management System
           </h1>
           <p className="text-lg text-center">
@@ -87,11 +87,13 @@ const Login = () => {
           </p>
           <p className="text-lg text-center">BE SAFE AND BE HAPPY !!!</p>
         </div>
-        <div className="w-1/2 p-8">
+
+        <div className="md:w-1/2 p-8 w-full">
           <h2 className="text-2xl font-semibold text-center mb-6 text-gray-700">
             Login
           </h2>
-          <p className="text-center font-bold text-red-600 ">{errorMessage}</p>
+          <p className="text-center font-bold text-red-600">{errorMessage}</p>
+
           <form className="space-y-4">
             <div>
               <label className="block text-gray-700 font-medium mb-1">
@@ -156,10 +158,12 @@ const Login = () => {
               Login
             </button>
           </form>
+
           <div className="mt-4 text-center">
             <p className="text-gray-700">
               Don't have an account?
               <Link to="/signup" className="text-blue-500 hover:underline">
+                {" "}
                 Register
               </Link>
             </p>
