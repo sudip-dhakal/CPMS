@@ -11,7 +11,6 @@ import Delete from "../Components/Reusable/Delete";
 const ReleasedMessages = () => {
   const [openDelete, setOpenDelete] = useState(false);
   const { adminData, setAdminData } = useContext(admin);
-  const [message, setMessage] = useState("");
   const [edit, setEdit] = useState(false);
   const [id, setId] = useState("");
   let navigation = useNavigate();
