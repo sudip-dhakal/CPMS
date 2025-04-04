@@ -52,7 +52,7 @@
         {
           "flag": true,
           "replyText": "The potholes have been repaired successfully.",
-          "complainText": "Road repair has been Started",
+          "complainText": "Road repair has been Started.",
           "complainDate": "2023-04-06",
           "replyDate": "2023-04-10",
           "id": 3728735
@@ -112,14 +112,6 @@
           "complainDate": "2024-11-12",
           "replyDate": "Not yet",
           "id": 9274610
-        },
-        {
-          "flag": true,
-          "replyText": "The animal control team has been dispatched.",
-          "complainText": "Stray dogs causing issues in the neighborhood.",
-          "complainDate": "2024-12-05",
-          "replyDate": "2024-12-06",
-          "id": 7463821
         }
       ],
       "id": "78c9"
@@ -191,15 +183,7 @@
       "address": "efgh",
       "password": "mnopqrstwxyx",
       "role": "user",
-      "reply": [
-        {
-          "flag": false,
-          "replyText": "",
-          "complainText": "",
-          "replyDate": "",
-          "complainDate": ""
-        }
-      ]
+      "reply": []
     },
     {
       "id": "f871",

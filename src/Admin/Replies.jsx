@@ -3,11 +3,12 @@ import VerticalNavbar from "./VerticalNavbar";
 import user from "../context/userContext";
 
 const Replies = () => {
-  const [showTextarea, setShowTextarea] = useState(false);
+  const [editingReplyId, setEditingReplyId] = useState(null);
   const [replies, setReplies] = useState([]);
   const { complaints } = useContext(user);
 
   let filter = complaints.filter((item) => item.role === "user");
+
   const getReplies = () => {
     let allReplies = [];
     filter.map((items) => {
@@ -32,64 +33,70 @@ const Replies = () => {
     getReplies();
   }, [complaints]);
 
-  console.log(replies);
-
-  const handleReplyClick = () => {
-    setShowTextarea(true);
+  const handleReplyClick = (id) => {
+    setEditingReplyId(id);
   };
 
   return (
-    <div>
-      <div>
-        <VerticalNavbar />
-      </div>
+    <div className="min-h-screen bg-gray-100">
+      <div className="flex">
+        <div className="fixed top-0 left-0 h-screen w-[15%] bg-white shadow-md z-10">
+          <VerticalNavbar />
+        </div>
 
-      <div className="ml-[15%] flex flex-wrap">
-        {replies?.map((item, index) =>
-          item.flag === true ? (
-            <div key={index} className="max-w-full w-[40%] p-4">
-              <div className="border p-4 rounded-lg shadow-md">
-                <div className="flex justify-between font-semibold">
-                  <span className="text-xl mb-2">{item.userName}</span>
-                  <span>{item.address}</span>
+        <div className="ml-[15%] p-6 flex flex-wrap gap-6 w-full">
+          {replies?.map((item, index) =>
+            item.flag === true ? (
+              <div
+                key={index}
+                className="bg-white shadow-lg rounded-2xl p-6 w-full sm:w-[45%] "
+              >
+                <div className="flex justify-between items-center mb-4">
+                  <h2 className="text-lg font-bold text-gray-800">
+                    {item.userName}
+                  </h2>
+                  <span className="text-sm text-gray-500">{item.address}</span>
                 </div>
 
-                <div className="mt-2 text-sm">
-                  <p className="font-semibold">
+                <div className="text-sm text-gray-700 mb-3">
+                  <p className="font-semibold mb-1">
                     Complain Date: {item.complainDate}
                   </p>
                   <p className="text-gray-600">{item.userComplaint}</p>
                 </div>
 
-                <div className="mt-2 text-sm">
-                  <p className="font-semibold">Reply Date: {item.replyDate}</p>
+                <div className="text-sm text-gray-700 mb-4">
+                  <p className="font-semibold mb-1">
+                    Reply Date: {item.replyDate}
+                  </p>
                   <p className="text-gray-600">{item.adminReply}</p>
                 </div>
 
-                <div className="mt-4">
-                  {!showTextarea ? (
+                <div>
+                  {editingReplyId !== item.replyId ? (
                     <button
-                      className="bg-blue-500 text-white px-4 py-2 rounded-md"
-                      onClick={handleReplyClick}
+                      className="bg-blue-600 hover:bg-blue-700 text-white px-4 py-2 rounded-lg transition-colors"
+                      onClick={() => handleReplyClick(item.replyId)}
                     >
                       Edit
                     </button>
                   ) : (
                     <div className="mt-2">
                       <textarea
-                        className="w-full border p-2 rounded-md"
+                        className="w-full border border-gray-300 rounded-lg p-3 resize-none focus:outline-none focus:ring-2 focus:ring-blue-500"
                         placeholder="Write your reply..."
+                        rows="1"
                       ></textarea>
-                      <button className="bg-green-500 text-white px-4 py-2 mt-2 rounded-md cursor-pointer">
+                      <button className="mt-3 bg-green-600 hover:bg-green-700 text-white px-4 py-2 rounded-lg transition-colors">
                         Submit
                       </button>
                     </div>
                   )}
                 </div>
               </div>
-            </div>
-          ) : null
-        )}
+            ) : null
+          )}
+        </div>
       </div>
     </div>
   );

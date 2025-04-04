@@ -108,39 +108,51 @@ const Your_complaints = () => {
   return (
     <>
       <Navbar />
-      <div className="pt-20 px-10">
-        <h2 className="text-2xl font-semibold text-center my-4">
+      <div className="pt-20 px-4 sm:px-6 lg:px-10">
+        <h2 className="text-xl sm:text-2xl font-semibold text-center my-4">
           Your Complaints
         </h2>
-        <div className="bg-white p-4 rounded-lg shadow-md">
-          <table className="w-full border-collapse">
+        <div className="bg-white p-4 rounded-lg shadow-md overflow-x-auto">
+          <table className="w-full border-collapse min-w-[600px]">
             <thead className="bg-blue-600 text-white">
               <tr>
-                <th className="p-3">S.N</th>
-                <th className="p-3">Date</th>
-                <th className="p-3">Complaint</th>
-                <th className="p-3">Actions</th>
+                <th className="p-2 sm:p-3 text-xs sm:text-sm">S.N</th>
+                <th className="p-2 sm:p-3 text-xs sm:text-sm">Date</th>
+                <th className="p-2 sm:p-3 text-xs sm:text-sm">Complaint</th>
+                <th className="p-2 sm:p-3 text-xs sm:text-sm">Actions</th>
               </tr>
             </thead>
             <tbody>
               {!selected ? (
-                <div>Loading...</div>
+                <tr>
+                  <td colSpan="4" className="text-center p-4">
+                    Loading...
+                  </td>
+                </tr>
               ) : !selected.reply ? (
-                <div>Loading data...</div>
+                <tr>
+                  <td colSpan="4" className="text-center p-4">
+                    Loading data...
+                  </td>
+                </tr>
               ) : selected.reply.length === 0 ? (
-                <div>No data available</div>
+                <tr>
+                  <td colSpan="4" className="text-center p-4">
+                    No data available
+                  </td>
+                </tr>
               ) : (
                 selected.reply.map((item, index) => (
                   <tr
                     key={index}
-                    className="border-b odd:bg-gray-100 even:bg-blue-50"
+                    className="border-b odd:bg-gray-100 even:bg-blue-50 text-xs sm:text-sm"
                   >
-                    <td className="text-center p-3">{index + 1}</td>
-                    <td className="text-center p-3">
+                    <td className="text-center p-2 sm:p-3">{index + 1}</td>
+                    <td className="text-center p-2 sm:p-3">
                       {edit === item.id ? (
                         <input
                           type="date"
-                          className="border-1 rounded-md border-blue-700 border-dashed px-4 py-1 w-full"
+                          className="border rounded-md px-2 py-1 w-full"
                           name="complainDate"
                           value={editData.complainDate}
                           onChange={handleEditChange}
@@ -149,12 +161,12 @@ const Your_complaints = () => {
                         <p>{item.complainDate}</p>
                       )}
                     </td>
-                    <td className="text-left p-3">
+                    <td className="text-left p-2 sm:p-3">
                       <div>
                         {edit === item.id ? (
                           <input
                             type="text"
-                            className="border-1 rounded-md border-blue-700 border-dashed px-4 py-1 w-full"
+                            className="border rounded-md px-2 py-1 w-full"
                             name="complainText"
                             value={editData.complainText}
                             onChange={handleEditChange}
@@ -163,47 +175,46 @@ const Your_complaints = () => {
                           <p>{item.complainText}</p>
                         )}
                         {feedbackId === item.id && (
-                          <p className="italic  bg-green-700 text-white p-1 mt-2 rounded-md">
-                            Reply: {item.replyText}{" "}
+                          <p className="italic bg-green-700 text-white p-1 mt-2 rounded-md">
+                            Reply: {item.replyText}
                           </p>
                         )}
                       </div>
                     </td>
-                    <td className="text-center p-3 flex justify-center gap-3">
+                    <td className="text-center p-2 sm:p-3 flex flex-wrap justify-center gap-2">
                       {edit === item.id ? (
                         <button
-                          className="text-blue-600 hover:text-white  hover:bg-amber-950 hover:rounded-full p-2 cursor-pointer"
+                          className="text-blue-600 hover:text-white hover:bg-amber-950 rounded-full p-2"
                           title="Update"
                           onClick={sendUpdatedData}
                         >
-                          <TiTick size={25} />
+                          <TiTick size={20} />
                         </button>
                       ) : (
                         <button
-                          className="text-blue-600 hover:text-white  hover:bg-amber-950 hover:rounded-full p-2 cursor-pointer"
+                          className="text-blue-600 hover:text-white hover:bg-amber-950 rounded-full p-2"
                           onClick={() => editHandler(item)}
                           title="Edit Complaints"
                         >
-                          <FaEdit />
+                          <FaEdit size={16} />
                         </button>
                       )}
                       <button
-                        className="text-red-600 hover:rounded-full  p-2 cursor-pointer hover:bg-amber-950 hover:text-white"
+                        className="text-red-600 hover:text-white hover:bg-amber-950 rounded-full p-2"
                         onClick={() => {
-                          // deleteHandler(item.id);
                           setDeleteId(item.id);
                           setOpenDelete(true);
                         }}
                         title="Delete this row"
                       >
-                        <FaTrash />
+                        <FaTrash size={16} />
                       </button>
                       <button
-                        className="text-red-699 hover:rounded-full p-2 hover:bg-amber-950 hover:text-white cursor-pointer "
+                        className="text-gray-700 hover:text-white hover:bg-amber-950 rounded-full p-2"
                         onClick={() => seeFeedback(item.id)}
                         title="Reply from admin"
                       >
-                        <FaEye />
+                        <FaEye size={16} />
                       </button>
                     </td>
                   </tr>
