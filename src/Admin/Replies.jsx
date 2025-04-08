@@ -87,17 +87,17 @@ const Replies = () => {
                   </div>
 
                   <div className="text-sm text-gray-700 mb-3">
-                    <p className="font-semibold mb-1">
+                    <p className=" mb-1 text-gray-600">
                       Complain Date: {item.complainDate}
                     </p>
-                    <p className="text-gray-600">{item.userComplaint}</p>
+                    <p className="text-black font-semibold">{item.userComplaint}</p>
                   </div>
 
                   <div className="text-sm text-gray-700 mb-4">
-                    <p className="font-semibold mb-1">
+                    <p className=" text-gray-600 mb-1">
                       Reply Date: {item.replyDate}
                     </p>
-                    <p className="text-gray-600">{item.adminReply}</p>
+                    <p className="text-black font-semibold">{item.adminReply}</p>
                   </div>
 
                   {editingReplyId === item.replyId ? (
