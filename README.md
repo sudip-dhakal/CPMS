@@ -1,4 +1,4 @@
-#Complaint Management System
+# Complaint Management System
 A simple yet effective Complaint Management System built with React and powered by json-server for backend operations. It allows users to submit complaints to authorities, view responses, and stay updated with official notes from the government.
 
 # Features
