@@ -1,376 +1,138 @@
 {
   "storedData": [
     {
-      "fullName": "Pravakar Rijal",
+      "fullName": "Aarav Sharma",
       "role": "user",
-      "address": "address",
-      "username": "pravakar_11",
-      "password": "password",
+      "address": "123 New Road, Kathmandu, Nepal",
+      "username": "aarav_sharma",
+      "password": "securePass123",
       "reply": [
         {
           "flag": true,
-          "replyText": "We will do it tomorrow",
-          "complainText": "The street lights are broken and need to be fixed.",
-          "complainDate": "2002-04-07",
-          "replyDate": "2025-04-04",
-          "id": 3728732
+          "replyText": "The maintenance team will inspect the lights tomorrow morning.",
+          "complainText": "Street lights on our block have been off for 3 nights.",
+          "complainDate": "2025-03-15",
+          "replyDate": "2025-03-16",
+          "id": 1001
         },
         {
           "flag": true,
-          "replyText": "Your issue has been resolved, and the street lights are now operational.",
-          "complainText": "The street lights were repaired today.",
-          "complainDate": "2002-07-17",
-          "replyDate": "2002-08-08",
-          "id": 3728733
-        },
-        {
-          "flag": false,
-          "replyText": "",
-          "complainText": "NIice, Hi there",
-          "complainDate": "2025-02-18",
-          "replyDate": "",
-          "id": 22970
-        },
-        {
-          "flag": false,
-          "replyText": "",
-          "complainText": "lorem100\n",
-          "complainDate": "2025-02-17",
-          "replyDate": "",
-          "id": 5463
+          "replyText": "Our water department has been notified and will fix the pipeline by the end of the week.",
+          "complainText": "Water is leaking from a pipeline near the community park.",
+          "complainDate": "2025-04-05",
+          "replyDate": "2025-04-06",
+          "id": 1002
         }
       ],
-      "id": "50b6"
+      "id": "u001"
     },
     {
-      "fullName": "Sudip Bro",
+      "fullName": "Maya Gurung",
       "role": "user",
-      "address": "456 Elm St, Springfield, USA",
-      "username": "jane_smith",
-      "password": "12345678",
+      "address": "5th Street, Pokhara, Nepal",
+      "username": "maya_gurung",
+      "password": "maya2025!",
       "reply": [
         {
           "flag": true,
-          "replyText": "The potholes have been repaired successfully.",
-          "complainText": "Road repair has been Started.",
-          "complainDate": "2023-04-06",
-          "replyDate": "2023-04-10",
-          "id": 3728735
+          "replyText": "Garbage pickup was delayed due to weather. It will resume tomorrow.",
+          "complainText": "Garbage collection has not occurred this week.",
+          "complainDate": "2025-04-02",
+          "replyDate": "2025-04-03",
+          "id": 1003
         },
         {
           "flag": true,
-          "replyText": "Not yet",
-          "complainText": "This is the new complaint.",
-          "complainDate": "2025-02-19",
-          "replyDate": "Not yet",
-          "id": 1345427070
-        },
-        {
-          "flag": true,
-          "replyText": "Water supply has been restored.",
-          "complainText": "No water supply in the area.",
-          "complainDate": "2024-06-15",
-          "replyDate": "2024-06-20",
-          "id": 8473629
-        },
-        {
-          "flag": true,
-          "replyText": "Garbage collection is scheduled for tomorrow.",
-          "complainText": "Garbage has not been collected for a week.",
-          "complainDate": "2024-08-10",
-          "replyDate": "2024-08-11",
-          "id": 9283746
-        },
-        {
-          "flag": true,
-          "replyText": "The issue is under review.",
-          "complainText": "Streetlights are not working.",
-          "complainDate": "2024-09-05",
-          "replyDate": "Not yet",
-          "id": 1039284
-        },
-        {
-          "flag": true,
-          "replyText": "The matter has been escalated to the electricity department.",
-          "complainText": "Power outage for more than 10 hours.",
-          "complainDate": "2024-07-22",
-          "replyDate": "2024-07-23",
-          "id": 2736471
-        },
-        {
-          "flag": true,
-          "replyText": "The concerned team has been notified.",
-          "complainText": "Illegal parking blocking my driveway.",
-          "complainDate": "2024-10-01",
-          "replyDate": "2024-10-02",
-          "id": 8473620
-        },
-        {
-          "flag": true,
-          "replyText": "Repairs are in progress.",
-          "complainText": "Broken pipeline causing water leakage.",
-          "complainDate": "2024-11-12",
-          "replyDate": "Not yet",
-          "id": 9274610
+          "replyText": "We have scheduled power maintenance to resolve this issue permanently.",
+          "complainText": "There is frequent electricity outage in my area.",
+          "complainDate": "2025-04-06",
+          "replyDate": "2025-04-07",
+          "id": 1004
         }
       ],
-      "id": "78c9"
+      "id": "u002"
     },
     {
-      "fullName": "Sophia Martinez",
+      "fullName": "Ramesh Karki",
       "role": "admin",
-      "address": "321 Birch Ln, Rivertown, USA",
-      "username": "sophia_m",
-      "password": "S0ph!a2023",
-      "id": "7dc8"
+      "address": "Ward 11, Bharatpur, Nepal",
+      "username": "admin_ramesh",
+      "password": "R@meshAdmin",
+      "id": "a001"
     },
     {
-      "fullName": "Liam Brown",
+      "fullName": "Sneha Bista",
       "role": "admin",
-      "address": "654 Cedar Blvd, Lakeside, USA",
-      "username": "liam_b",
-      "password": "L!am2023",
-      "id": "7826"
+      "address": "Dillibazar, Kathmandu, Nepal",
+      "username": "sneha_b",
+      "password": "Sneha#2024",
+      "id": "a002"
     },
     {
-      "fullName": "Michael Johnson",
+      "fullName": "Bikash Thapa",
       "role": "user",
-      "address": "789 Pine St, Metropolis, USA",
-      "username": "michael_j",
-      "password": "M!ke2023",
+      "address": "Mahendra Highway, Hetauda, Nepal",
+      "username": "bikash_t",
+      "password": "thapaPass99",
       "reply": [
         {
           "flag": true,
-          "replyText": "We acknowledge your complaint about the water supply issue.",
-          "complainText": "The water supply has been inconsistent for the past few days.",
-          "complainDate": "2023-06-18",
-          "replyDate": "2023-06-22",
-          "id": 3728737
-        },
-        {
-          "flag": true,
-          "replyText": "The water supply issue has been resolved.",
-          "complainText": "Water supply is back to normal now.",
-          "complainDate": "2023-06-25",
-          "replyDate": "2023-06-28",
-          "id": 3728738
+          "replyText": "We’ve informed the traffic police to monitor illegal parking.",
+          "complainText": "Cars are constantly blocking the pedestrian walkway.",
+          "complainDate": "2025-03-25",
+          "replyDate": "2025-03-26",
+          "id": 1005
         }
       ],
-      "id": "92d4"
-    },
-    {
-      "id": "e660",
-      "fullName": "Sudip Dhakal bro",
-      "username": "sudip_bhai",
-      "address": "Nuwakot Nepal",
-      "password": "11111111",
-      "role": "user",
-      "reply": [
-        {
-          "flag": false,
-          "replyText": "",
-          "complainText": "",
-          "replyDate": "",
-          "complainDate": ""
-        }
-      ]
-    },
-    {
-      "flag": true,
-      "id": "e67b",
-      "fullName": "abcd",
-      "username": "ijkl",
-      "address": "efgh",
-      "password": "mnopqrstwxyx",
-      "role": "user",
-      "reply": []
-    },
-    {
-      "id": "f871",
-      "fullName": "Sudip Dhakal",
-      "username": "sudip900",
-      "address": "BelkotGadhi-10-Nuwakot",
-      "password": "password",
-      "role": "user",
-      "reply": [
-        {
-          "flag": false,
-          "replyText": "",
-          "complainText": "",
-          "replyDate": "",
-          "complainDate": ""
-        }
-      ]
-    },
-    {
-      "id": "b423",
-      "fullName": "Krishna Dwarkadhish",
-      "username": "krishna900",
-      "address": "Mathura City",
-      "password": "password",
-      "role": "user",
-      "reply": [
-        {
-          "flag": true,
-          "replyText": "Not yet",
-          "complainText": "Toast feedback one",
-          "complainDate": "2025-03-11",
-          "replyDate": "Not yet",
-          "id": 598410874
-        }
-      ]
+      "id": "u003"
     }
   ],
   "adminReleases": [
     {
-      "id": "5e56",
-      "releaseNoteTitle": "Critical Bug Fixes",
-      "releaseNoteDescription": "This release addresses several critical bugs affecting user experience and improves overall system performance.",
-      "releaseDate": "2020-08-15",
+      "id": "r001",
+      "releaseNoteTitle": "Improved Complaint Tracking",
+      "releaseNoteDescription": "Users can now track the status of their complaints in real time with progress updates.",
+      "releaseDate": "2025-03-10",
       "feedback": [
         {
-          "id": 39476214,
-          "userID": "5e56",
-          "UserName": "John Doe",
-          "feedbackText": "Updated feedback"
+          "id": 2001,
+          "userID": "u001",
+          "UserName": "Aarav Sharma",
+          "feedbackText": "This makes it so much easier to stay updated. Great feature!"
         },
         {
-          "id": 11034457,
-          "userID": "5e56",
-          "UserName": "Krishna Dwarkadhish",
-          "feedbackText": "Toast success"
+          "id": 2002,
+          "userID": "u002",
+          "UserName": "Maya Gurung",
+          "feedbackText": "Very helpful, especially when dealing with delayed responses."
         }
       ]
     },
     {
-      "id": "5e57",
-      "releaseNoteTitle": "New Feature: Dark Mode Added",
-      "releaseNoteDescription": "Introducing Dark Mode for a better user experience in low-light environments.",
-      "releaseDate": "2020-09-05",
+      "id": "r002",
+      "releaseNoteTitle": "Mobile App Release",
+      "releaseNoteDescription": "Our complaint management system is now available on Android and iOS platforms.",
+      "releaseDate": "2025-03-20",
       "feedback": [
         {
-          "id": "ptool",
-          "userID": "unknown",
-          "UserName": "Alice Smith",
-          "feedbackText": "Loving the new dark mode, very sleek!"
+          "id": 2003,
+          "userID": "u003",
+          "UserName": "Bikash Thapa",
+          "feedbackText": "The app is smooth and user-friendly. Reporting issues is much faster now."
         }
       ]
     },
     {
-      "id": "5e58",
-      "releaseNoteTitle": "UI/UX Overhaul and Navigation Improvements",
-      "releaseNoteDescription": "A complete redesign of the user interface and improved navigation for a smoother experience.",
-      "releaseDate": "2020-09-20",
+      "id": "r003",
+      "releaseNoteTitle": "Security Patch Update",
+      "releaseNoteDescription": "Implemented new encryption protocols to safeguard user data and privacy.",
+      "releaseDate": "2025-04-01",
       "feedback": [
         {
-          "id": "akbdj",
-          "userID": "unknown",
-          "UserName": "Bob Johnson",
-          "feedbackText": "The redesign is fantastic, navigation feels so much smoother!"
-        }
-      ]
-    },
-    {
-      "id": "5e59",
-      "releaseNoteTitle": "Performance Optimization and Bug Fixes",
-      "releaseNoteDescription": "Improved system performance and resolved several reported bugs for a more stable experience.",
-      "releaseDate": "2020-10-10",
-      "feedback": [
-        {
-          "id": "vqpas",
-          "userID": "unknown",
-          "UserName": "Cathy Lee",
-          "feedbackText": "The performance is much better now, no crashes anymore."
-        }
-      ]
-    },
-    {
-      "id": "5e60",
-      "releaseNoteTitle": "Security Update: Encryption Enhancements",
-      "releaseNoteDescription": "Updated encryption protocols to improve data security and privacy.",
-      "releaseDate": "2020-11-05",
-      "feedback": [
-        {
-          "id": "rtyfg",
-          "userID": "unknown",
-          "UserName": "David Kim",
-          "feedbackText": "Feels safer using the app now with the encryption improvements."
-        }
-      ]
-    },
-    {
-      "id": "5e61",
-      "releaseNoteTitle": "New Analytics Dashboard",
-      "releaseNoteDescription": "A new dashboard providing insights into usage patterns and performance metrics.",
-      "releaseDate": "2020-11-20",
-      "feedback": [
-        {
-          "id": "mcjkr",
-          "userID": "unknown",
-          "UserName": "Emma Brown",
-          "feedbackText": "Great addition, the new dashboard makes tracking much easier."
-        }
-      ]
-    },
-    {
-      "id": "5e62",
-      "releaseNoteTitle": "Bug Fix: Login Authentication",
-      "releaseNoteDescription": "Fixed a bug preventing users from logging in with certain credentials.",
-      "releaseDate": "2021-01-15",
-      "feedback": [
-        {
-          "id": "qwesx",
-          "userID": "unknown",
-          "UserName": "Frank White",
-          "feedbackText": "Finally able to log in, thank you for fixing this issue!"
-        }
-      ]
-    },
-    {
-      "id": "5e63",
-      "releaseNoteTitle": "Feature Update: Multi-language Support",
-      "releaseNoteDescription": "Added support for multiple languages to broaden accessibility.",
-      "releaseDate": "2021-02-01",
-      "feedback": [
-        {
-          "id": "lzkfw",
-          "userID": "unknown",
-          "UserName": "Grace Green",
-          "feedbackText": "App feels more accessible now with the added languages."
-        },
-        {
-          "id": 66673479,
-          "userID": "5e63",
-          "UserName": "Henry Wilson",
-          "feedbackText": "ok"
-        }
-      ]
-    },
-    {
-      "id": "5e64",
-      "releaseNoteTitle": "Update: Improved File Upload Speed",
-      "releaseNoteDescription": "Optimized file upload functionality to increase speed and reduce errors.",
-      "releaseDate": "2021-03-10",
-      "feedback": [
-        {
-          "id": "ogwye",
-          "userID": "unknown",
-          "UserName": "Ivy Thomas",
-          "feedbackText": "File uploads are noticeably faster now, very efficient!"
-        }
-      ]
-    },
-    {
-      "id": "4a41",
-      "releaseNoteTitle": "Critical Security Patch and Stability Fixes",
-      "releaseNoteDescription": "A critical security vulnerability has been patched in this release, addressing potential risks related to unauthorized access. Stability improvements have been made to prevent unexpected crashes and enhance overall system reliability. We strongly recommend updating to this version to maintain a secure and efficient environment.",
-      "releaseDate": "2021-03-10",
-      "feedback": [
-        {
-          "id": "dfae",
-          "userID": "unknown",
-          "UserName": "Jack Davis",
-          "feedbackText": "Thanks for the security patch! The app feels much safer now."
+          "id": 2004,
+          "userID": "u001",
+          "UserName": "Aarav Sharma",
+          "feedbackText": "Good to know our information is now more secure."
         }
       ]
     }
