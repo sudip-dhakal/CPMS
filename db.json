@@ -10,18 +10,10 @@
         {
           "flag": true,
           "replyText": "The maintenance team will inspect the lights tomorrow morning.",
-          "complainText": "Street lights on our block have been off for 3 nights.",
+          "complainText": "Street lights on our block have been off for 3 nights. Okay done",
           "complainDate": "2025-03-15",
           "replyDate": "2025-03-16",
           "id": 1001
-        },
-        {
-          "flag": true,
-          "replyText": "Our water department has been notified and will fix the pipeline by the end of the week.",
-          "complainText": "Water is leaking from a pipeline near the community park.",
-          "complainDate": "2025-04-05",
-          "replyDate": "2025-04-06",
-          "id": 1002
         }
       ],
       "id": "u001"

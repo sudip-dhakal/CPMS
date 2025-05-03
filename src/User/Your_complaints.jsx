@@ -116,7 +116,7 @@ const Your_complaints = () => {
           <table className="w-full border-collapse min-w-[600px]">
             <thead className="bg-blue-600 text-white">
               <tr>
-                <th className="p-2 sm:p-3 text-xs sm:text-sm">S.N</th>
+                <th className="p-2 sm:p-3 text-xs sm:text-sm ">S.N</th>
                 <th className="p-2 sm:p-3 text-xs sm:text-sm">Date</th>
                 <th className="p-2 sm:p-3 text-xs sm:text-sm">Complaint</th>
                 <th className="p-2 sm:p-3 text-xs sm:text-sm">Actions</th>
